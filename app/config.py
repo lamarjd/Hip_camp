@@ -1,7 +1,13 @@
 import os
 
-# contains the configuration Object, which gets the Secret Key and URI from the .env
-class Configuration:
-    SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
-    # DB_FILE = os.environ.get("DB_FILE")
+
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    # SQLAlchemy 1.4 no longer supports url strings that start with 'postgres'
+    # (only 'postgresql') but heroku's postgres add-on automatically sets the
+    # url in the hidden config vars to start with postgres.
+    # so the connection uri must be updated here (for production)
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        'DATABASE_URL').replace('postgres://', 'postgresql://')
+    SQLALCHEMY_ECHO = True
