@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+    <ul>
+
+        {% for person in people %}
+        <li>{{ person.name }}
+            {{ person.age }}
+            {{ person.bio }}
+        </li>
+        {% endfor %}
+    </ul>
+</html>
