@@ -76,4 +76,18 @@ def edit_spot(id):
     else:
         return make_response("Unauthorized", 401)
 
+
+@spot_routes.route('/<int:id>', methods=["DELETE"])
+def delete_spot(id):
+    spot = Spot.query.get(id)
+    if(not spot):
+        return '<h1>No such Spot Exists</h1>'
+    if spot.user_id == current_user.id:
+        db.session.delete(spot)
+        db.session.commit()
+        return {
+            "message": "Successfully deleted",
+            "statusCode": 200
+        }
+
         
