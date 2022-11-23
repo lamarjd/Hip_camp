@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired
 
 class NewSpot(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
+    user_id = IntegerField("User ID")
     type = StringField("Type")
     address = StringField("Address")
     state = StringField("State")
