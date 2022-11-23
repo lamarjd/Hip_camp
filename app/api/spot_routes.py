@@ -14,6 +14,7 @@ spot_routes = Blueprint('spots', __name__)
 def get_all_spots():
     # if current_user.is_authenticated:
         spots = Spot.query.all()
+        # print("my spots", spots)
         return {"spots": [spot.to_dict() for spot in spots]}
         # return make_response(response, 200)
 
