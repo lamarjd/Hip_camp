@@ -13,16 +13,16 @@ class Spot(db.Model):
     name = db.Column(db.String(100), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     type = db.Column(db.String(150), nullable = False)
-    address = db.Column(db.String(150), nullable = False)
-    state = db.Column(db.String(150), nullable = False)
-    country = db.Column(db.String(150), nullable = False)
+    address = db.Column(db.String(150))
+    state = db.Column(db.String(150))
+    country = db.Column(db.String(150))
     price = db.Column(db.Integer, nullable = False)
-    description = db.Column(db.String(1000), nullable = False)
+    description = db.Column(db.String(2000), nullable = False)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
 #  Add relationship for reviews - Cascade Delete
-    reviews = db.relationship("Review", cascade="all,delete", backref="spot")
+    # reviews = db.relationship("Review", cascade="all,delete", backref="spot")
 
 
     def to_dict(self):
