@@ -9,7 +9,10 @@ const dispatch = useDispatch();
 const { spotId } = useParams();
 console.log("Spot Id", spotId);
 
+const spots = useSelector(state => Object.values(state.spots))
 
+const filtered = spots.filter((spot) => spot.id === +spotId)
+console.log("Filtered bruv", filtered)
 
 useEffect(() => {
     dispatch(fetchOneSpot(spotId))
