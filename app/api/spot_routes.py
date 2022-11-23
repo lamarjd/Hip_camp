@@ -62,13 +62,13 @@ def edit_spot(id):
     if one_spot.user_id == current_user.id:
         
         if form.validate_on_submit():
-            one_spot.name = form.data["name"],
-            one_spot.type = form.data["type"],
-            one_spot.user_id = current_user.id,
-            one_spot.address = form.data["address"],
-            one_spot.state = form.data["state"],
-            one_spot.country = form.data["country"],
-            one_spot.price = form.data["price"],
+            one_spot.name = form.data["name"]
+            one_spot.type = form.data["type"]
+            one_spot.user_id = current_user.id
+            one_spot.address = form.data["address"]
+            one_spot.state = form.data["state"]
+            one_spot.country = form.data["country"]
+            one_spot.price = form.data["price"]
             one_spot.description = form.data["description"]
             db.session.commit()
 
