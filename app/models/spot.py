@@ -22,14 +22,13 @@ class Spot(db.Model):
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
 #  Add relationship for reviews - Cascade Delete
-    # reviews = db.relationship("Review", cascade="all,delete", backref="spot")
+    reviews = db.relationship("Review", cascade="all,delete", backref="spot")
 
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
-            "user_id": self.user_id,
             "type": self.type,
             "address": self.address,
             "state": self.state,
