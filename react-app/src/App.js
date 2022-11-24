@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import AllSpots from './components/Spots';
+import AllSpots from './components/Spots/AllSpots';
 import OneSpot from './components/OneSpot';
 import { authenticate } from './store/session';
 
