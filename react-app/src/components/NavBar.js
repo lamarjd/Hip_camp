@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
@@ -31,6 +31,9 @@ const NavBar = () => {
           <LogoutButton />
         </li>
       </ul>
+     <NavLink to='/spots' exact={true}>
+     See All Spots
+     </NavLink>
     </nav>
   );
 }

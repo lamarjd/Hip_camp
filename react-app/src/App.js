@@ -8,7 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import AllSpots from './components/Spots/AllSpots';
-import OneSpot from './components/OneSpot';
+import OneSpot from './components/OneSpot/OneSpot.js';
 import { authenticate } from './store/session';
 
 function App() {
@@ -45,10 +45,12 @@ function App() {
         <Route path='/spots/:spotId'>
           <OneSpot />
         </Route>
+        <Route exact path="/spots">
+          <AllSpots />
+        </Route>
 
 
         <Route path='/' exact={true} >
-          <AllSpots />
           <h1>My Home Page</h1>
         </Route>
       </Switch>

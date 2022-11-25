@@ -14,6 +14,8 @@ function CreateSpotForm() {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
+  const [showForm, setShowForm] = useState(false)
+
   let updateName = (e) => {
     setName(e.target.value)
   } 
@@ -69,6 +71,7 @@ function CreateSpotForm() {
 
   return (
     <div className="create-spot-container">
+      {showForm &&
       <form className="spot-form" onSubmit={handleSubmit}>
         
         <label>
@@ -80,7 +83,7 @@ function CreateSpotForm() {
             value={name}
             required
             onChange={updateName}
-          />
+            />
         </label>        
         
         <label>
@@ -92,7 +95,7 @@ function CreateSpotForm() {
             value={type}
             required
             onChange={updateType}
-          />
+            />
         </label>        
         
         <label>
@@ -104,7 +107,7 @@ function CreateSpotForm() {
             value={address}
             required
             onChange={updateAddress}
-          />
+            />
         </label>        
         
         <label>
@@ -116,7 +119,7 @@ function CreateSpotForm() {
             value={state}
             required
             onChange={updateState}
-          />
+            />
         </label>        
         
         <label>
@@ -128,7 +131,7 @@ function CreateSpotForm() {
             value={country}
             required
             onChange={updateCountry}
-          />
+            />
         </label>        
         
         <label>
@@ -140,7 +143,7 @@ function CreateSpotForm() {
             value={price}
             required
             onChange={updatePrice}
-          />
+            />
         </label>        
         
         <label>
@@ -152,13 +155,18 @@ function CreateSpotForm() {
             value={description}
             required
             onChange={updateDescription}
-          />
+            />
         </label>
 
-        <button className="ListButton" type="submit"
-        >Add Spot</button>
 
+        <button type="submit">Submit</button>
       </form>
+      }
+
+      <button 
+      onClick={() => setShowForm(true)}
+      className="ListButton" type="submit"
+      >Add Spot</button>
     </div>
   );
 }

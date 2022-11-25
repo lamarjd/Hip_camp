@@ -99,7 +99,7 @@ export const createSpotThunk = (payload,id) => async dispatch => {
 
 export const editSpotThunk = (spot,id) => async dispatch => {
     console.log("THUNK FIRING", spot, id)
-    const response = await fetch(`/api/spot/${id}`, {
+    const response = await fetch(`/api/spots/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
