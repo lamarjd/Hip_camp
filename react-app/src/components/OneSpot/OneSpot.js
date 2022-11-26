@@ -23,6 +23,9 @@ useEffect(() => {
   return (
     <div>
       <EditSpotForm spotId={spotId} oneSpot={oneSpot}/>
+      <h3>Image</h3>
+      <img src={oneSpot.imageUrl}>
+      </img>
       <h3>Name:</h3>
      {oneSpot.name}
      <br />
