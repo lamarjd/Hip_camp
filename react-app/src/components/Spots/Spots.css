@@ -1,0 +1,26 @@
+.all-spot-img{
+    /* border: 2px solid blue; */
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+#spot-pic {
+    /* object-fit: cover; */
+    height: 100%;
+    width: 100%;
+}
+
+.spot-list {
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(4,20%);
+    align-content: center;
+    justify-content: center; 
+    gap: 2%;
+    height: 100%;
+    width: 1180px;
+    background-color: white;
+    margin-top: 25%;    
+    margin-bottom: 25%;    
+}

@@ -3,18 +3,27 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory, useParams } from "react-router-dom"
 // THUNKS Imports
 import { fetchOneSpot } from "../../store/spot"
-// Component imports
+// Component and local imports
 import EditSpotForm from './EditSpotForm'
+import "./OneSpot.css"
 
 function OneSpot() {
 const dispatch = useDispatch();
 const { spotId } = useParams();
 console.log("Spot Id", spotId);
 
+const spot = useSelector((state) => {
+  return state.spots[spotId]
+})
+// console.log("Spot Selector", spot)
+
+/* ALT WAY TO SELECT THE SPOT FROM STORE
 const spots = useSelector(state => Object.values(state.spots))
 
 const oneSpot = spots.filter((spot) => spot.id === +spotId)[0]
 console.log("One Spot", oneSpot)
+*/
+
 
 useEffect(() => {
     dispatch(fetchOneSpot(spotId))
@@ -22,33 +31,39 @@ useEffect(() => {
 
   return (
     <div>
-      <EditSpotForm spotId={spotId} oneSpot={oneSpot}/>
+      <EditSpotForm spotId={spotId} 
+      // oneSpot={oneSpot}
+      />
+      
+
       <h3>Image</h3>
-      <img alt="spot-img" src={oneSpot.imageUrl} />
+      <div className="img-container">
+        <img id="spot-img" alt="spot-img" src={spot?.imageUrl} />
+      </div>
       
       <h3>Name:</h3>
-     {oneSpot.name}
+     {spot.name}
      <br />
      <h3>Type:</h3>
-     {oneSpot.type}
+     {spot.type}
      <br />
      <h3>Address:</h3>
-     {oneSpot.address}
+     {spot.address}
      <br />
      <h3>State:</h3>
-     {oneSpot.state}
+     {spot.state}
      <br />
      <h3>Country:</h3>
-     {oneSpot.country}
+     {spot.country}
      <br />
      <h3>Price:</h3>
-     {oneSpot.price}
+     {spot.price}
      <br />
      <h3>Description:</h3>
-     {oneSpot.description}
+     {spot.description}
      <br />
      <h3>UserID:</h3>
-     {oneSpot.user_id}
+     {spot.user_id}
     </div>
   )
 }

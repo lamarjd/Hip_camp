@@ -113,7 +113,7 @@ function CreateSpotForm() {
         </label>        
         
         <label> Spot Type
-          <select onchange={updateType}>
+          <select onChange={updateType}>
             <option value="Campsite">Campsite</option>
             <option value="Lodging">Lodging</option>
           </select>
@@ -179,7 +179,7 @@ function CreateSpotForm() {
         </label>        
         
         <label>
-          <textarea
+          <input
             className="spot-form-description-field"
             placeholder="Add a Description for your spot"
             type="text"
@@ -187,8 +187,8 @@ function CreateSpotForm() {
             value={description}
             required
             onChange={updateDescription}
-          >
-          </textarea>
+          />
+         
           </label>
 
 

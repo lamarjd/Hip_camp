@@ -30,6 +30,7 @@ class Spot(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "imageUrl": self.imageUrl,
             "user_id": self.user_id,
             "name": self.name,
             "type": self.type,
