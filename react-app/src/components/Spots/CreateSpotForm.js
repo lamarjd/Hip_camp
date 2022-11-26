@@ -112,16 +112,11 @@ function CreateSpotForm() {
             />
         </label>        
         
-        <label>
-          <input
-            className="spot-form-type-field"
-            placeholder="Spot Type"
-            type="text"
-            maxLength={50}
-            value={type}
-            required
-            onChange={updateType}
-            />
+        <label> Spot Type
+          <select onchange={updateType}>
+            <option value="Campsite">Campsite</option>
+            <option value="Lodging">Lodging</option>
+          </select>
         </label>        
         
         <label>
@@ -176,7 +171,6 @@ function CreateSpotForm() {
           <input
             className="spot-form-price-field"
             placeholder="Spot price"
-            type="text"
             // maxLength={60}
             value={price}
             required
@@ -185,16 +179,17 @@ function CreateSpotForm() {
         </label>        
         
         <label>
-          <input
+          <textarea
             className="spot-form-description-field"
-            placeholder="Spot Description"
+            placeholder="Add a Description for your spot"
             type="text"
             maxLength={2000}
             value={description}
             required
             onChange={updateDescription}
-            />
-        </label>
+          >
+          </textarea>
+          </label>
 
 
         <button type="submit">Submit</button>
