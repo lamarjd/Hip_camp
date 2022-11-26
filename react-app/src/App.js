@@ -31,9 +31,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route>
+        {/* <Route>
           <Test path="/test"/>
-        </Route>
+        </Route> */}
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 function CreateSpotForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [spotImage, setSpotImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [address, setAddress] = useState("");
@@ -18,8 +18,8 @@ function CreateSpotForm() {
 
   const [showForm, setShowForm] = useState(false)
 
-  let updateSpotImage = (e) => {
-    setSpotImage(e.target.value)
+  let updateImageUrl = (e) => {
+    setImageUrl(e.target.value)
   }
 
   let updateName = (e) => {
@@ -59,8 +59,10 @@ function CreateSpotForm() {
 
     const payload = {
       name,
+      imageUrl,
       type,
       address,
+      city,
       state,
       country,
       price,
@@ -69,7 +71,7 @@ function CreateSpotForm() {
 
     let spotCreated = await dispatch(createSpotThunk(payload));
     if (spotCreated) {
-      setSpotImage("");
+      setImageUrl("");
       setName("");
       setType("");
       setAddress("");
@@ -92,9 +94,9 @@ function CreateSpotForm() {
             placeholder="Spot Image"
             type="text"
             maxLength={250}
-            value={spotImage}
+            value={imageUrl}
             required
-            onChange={updateSpotImage}
+            onChange={updateImageUrl}
             />
         </label>  
 
