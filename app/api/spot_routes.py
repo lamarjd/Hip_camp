@@ -46,7 +46,7 @@ def new_spot():
             state = data["state"],
             country = data["country"],
             price = data["price"],
-            description = data["description"]
+            description = data["description"],
         )
         db.session.add(spot)
         db.session.commit()

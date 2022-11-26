@@ -6,15 +6,21 @@ import { useHistory } from "react-router-dom";
 function CreateSpotForm() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [spotImage, setSpotImage] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
   const [showForm, setShowForm] = useState(false)
+
+  let updateSpotImage = (e) => {
+    setSpotImage(e.target.value)
+  }
 
   let updateName = (e) => {
     setName(e.target.value)
@@ -27,6 +33,10 @@ function CreateSpotForm() {
   let updateAddress = (e) => {
     setAddress(e.target.value)
   } 
+
+  let updateCity = (e) => {
+    setCity(e.target.value)
+  }
   
   let updateState = (e) => {
     setState(e.target.value)
@@ -59,9 +69,11 @@ function CreateSpotForm() {
 
     let spotCreated = await dispatch(createSpotThunk(payload));
     if (spotCreated) {
+      setSpotImage("");
       setName("");
       setType("");
       setAddress("");
+      setCity("");
       setState("");
       setCountry("");
       setPrice(0);
@@ -74,6 +86,18 @@ function CreateSpotForm() {
       {showForm &&
       <form className="spot-form" onSubmit={handleSubmit}>
         
+        <label>
+          <input
+            className="spot-form-image-field"
+            placeholder="Spot Image"
+            type="text"
+            maxLength={250}
+            value={spotImage}
+            required
+            onChange={updateSpotImage}
+            />
+        </label>  
+
         <label>
           <input
             className="spot-form-name-field"
@@ -108,7 +132,19 @@ function CreateSpotForm() {
             required
             onChange={updateAddress}
             />
-        </label>        
+        </label>
+
+        <label>
+          <input
+            className="spot-form-city-field"
+            placeholder="Spot City"
+            type="text"
+            maxLength={60}
+            value={city}
+            required
+            onChange={updateCity}
+            />
+        </label>          
         
         <label>
           <input
