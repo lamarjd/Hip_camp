@@ -6,9 +6,11 @@ def seed_spots():
 
     spot1 = Spot(
         name='Mystic Mountain', 
+        imageUrl="https://hipcamp-res.cloudinary.com/image/upload/c_limit,f_auto,h_1200,q_60,w_1920/v1653684291/campground-photos/dxzsirx1lnpp2dtnlqjh.jpg",
         user_id=1, 
         type="Lodging",
         address="155 Lonestar Way",
+        city="Calistoga",
         state="California",
         country="USA",
         price=105,
@@ -17,9 +19,11 @@ def seed_spots():
         
     spot2 = Spot(
         name='Mendocino Magic', 
+        imageUrl="https://hipcamp-res.cloudinary.com/images/c_pad,e_blur:500,f_auto,q_60,w_128/v1626216309/campground-photos/ujh9b7a56y2jqoqqpyyt/mendocino-magic-lakeside-camp-northern-california.jpg",
         user_id=2, 
         type="Tent",
         address="312 Electric Avenue",
+        city="Mendocino",
         state="California",
         country="USA",
         price=180,
@@ -27,14 +31,16 @@ def seed_spots():
         )
         
     spot3 = Spot(
-        name='Mill Creek Camp', 
+        name='Holy Cross Refugio',
+        imageUrl="https://hipcamp-res.cloudinary.com/f_auto,c_limit,w_1080,q_60/v1499314898/campground-photos/ohoqrxdanzlzkfnez18g.jpg", 
         user_id=1, 
         type="Tent",
         address="654 Not a Road Anymore Rd.",
+        city="Steambot Springs",
         state="Colorado",
         country="USA",
         price=150,
-        description="Mill Creek Camp is a beautiful site featuring a campfire pit (for use only when fires are okayed) and a picnic table. The wooded area provides great privacy and excellent shade. Park your car and use hand carts to take your gear around the Mill Creek trail to reach your campsite (please don't forget to return hand carts!).  "
+        description="Holy Cross Refugio, or HCR, is a little sanctuary in the mountains. There is little nearby except for wilderness, with a lifetime worth of trails, lakes, and peaks to explore only two hours from Denver. We have access that few dream of to Colorado's water wilderness, and some of the best backcountry skiing, hiking, scrambling, and fly fishing in the Summit Vail Eagle Aspen area."
         )  
     
    

@@ -6,8 +6,10 @@ from wtforms.validators import DataRequired
 class NewSpot(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     user_id = IntegerField("User ID")
-    type = StringField("Type")
+    imageUrl = StringField("Image", validators=[DataRequired()])
+    type = SelectField("Type", choices=["Campsite", "Lodging"])
     address = StringField("Address")
+    city = StringField("City")
     state = StringField("State")
     country = StringField("Country")
     price = IntegerField("Price")

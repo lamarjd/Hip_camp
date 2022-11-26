@@ -39,8 +39,10 @@ def new_spot():
         spot = Spot(
             name = data["name"],
             user_id = current_user.id,
+            imageUrl = data["imageUrl"],
             type = data["type"],
             address = data["address"],
+            city = data["city"],
             state = data["state"],
             country = data["country"],
             price = data["price"],
@@ -63,9 +65,11 @@ def edit_spot(id):
         
         if form.validate_on_submit():
             one_spot.name = form.data["name"]
+            one_spot.imageUrl = form.data["imageUrl"]
             one_spot.type = form.data["type"]
             one_spot.user_id = current_user.id
             one_spot.address = form.data["address"]
+            one_spot.city = form.data["city"]
             one_spot.state = form.data["state"]
             one_spot.country = form.data["country"]
             one_spot.price = form.data["price"]
