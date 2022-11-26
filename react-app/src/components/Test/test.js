@@ -13,7 +13,7 @@ const Test = () => {
 
             {images.map((i => (
 
-        <div className="daddy">
+        <div className="baby">
 
           {images[i] % 2 === 0 ? 
           
