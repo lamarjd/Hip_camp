@@ -1,0 +1,22 @@
+.daddy {
+    /* border: 2px solid green; */
+    display: flex;
+    height: 2000px;
+    width: 2000px;
+}
+
+.Even {
+    display: flex;
+    margin-top: 33%;
+    height: 100vh;
+    width: 100%;
+    border: 2px solid red    
+}
+
+.Odd {
+    display: flex;
+    margin-bottom: 33%;
+    height: 100vh;
+    width: 100%;
+    border: 2px solid blue
+}

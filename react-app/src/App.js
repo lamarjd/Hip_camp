@@ -10,6 +10,7 @@ import User from './components/User';
 import AllSpots from './components/Spots/AllSpots';
 import OneSpot from './components/OneSpot/OneSpot.js';
 import { authenticate } from './store/session';
+import Test from './components/Test/test';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route>
+          <Test path="/test"/>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
