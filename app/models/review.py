@@ -18,7 +18,7 @@ class Review(db.Model):
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
 #  Add relationship for reviews - Cascade Delete
-    # spots = db.relationship("Spot", cascade="all,delete", backref="spot")
+    spots = db.relationship("Spot", cascade="all,delete", backref="spot")
     # users = db.relationship("User", cascade="all,delete", backref="user")
 
 
