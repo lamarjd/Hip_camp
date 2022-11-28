@@ -7,6 +7,7 @@ import "../../../context/Modal.css"
 function EditSpotForm({ spotId, spot, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("")
   const [type, setType] = useState("");
@@ -140,7 +141,8 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
                 type="text"
                 value={address}
                 // maxLength={60}
-                // required
+                minLength={3}
+                required
                 onChange={editedAddress}
               />
             </label>

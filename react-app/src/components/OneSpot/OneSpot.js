@@ -66,6 +66,7 @@ useEffect(() => {
      <EditSpotFormModal spot={spot} 
       spotId={spotId}
       />
+      
       {/* <EditSpotForm spot={spot} 
       spotId={spotId}/> */}
     </div>
