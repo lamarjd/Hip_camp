@@ -5,12 +5,13 @@ import { NavLink, useHistory, useParams } from "react-router-dom"
 import { fetchOneSpot } from "../../store/spot"
 // Component and local imports
 import EditSpotFormModal from '../Modals/EditSpotFormModal'
+import EditSpotForm from '../Modals/EditSpotFormModal/EditSpotForm'
 import "./OneSpot.css"
 
 function OneSpot() {
 const dispatch = useDispatch();
 const { spotId } = useParams();
-console.log("Spot Id", spotId);
+// console.log("Spot Id", spotId);
 
 const spot = useSelector((state) => {
   return state.spots[spotId]
@@ -63,8 +64,10 @@ useEffect(() => {
      <h3>UserID:</h3>
      {spot?.user_id}
      <EditSpotFormModal spot={spot} 
-      // oneSpot={oneSpot}
+      spotId={spotId}
       />
+      {/* <EditSpotForm spot={spot} 
+      spotId={spotId}/> */}
     </div>
   )
 }

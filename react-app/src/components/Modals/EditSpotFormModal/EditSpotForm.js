@@ -4,10 +4,11 @@ import { editSpotThunk, fetchSpots } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
 import "../../../context/Modal.css"
 
-function EditSpotForm({ spot, setShowModal }) {
+function EditSpotForm({ spotId, spot, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("")
   const [type, setType] = useState("");
   const [address, setAddress] = useState("");
   const [state, setState] = useState("");
@@ -17,10 +18,11 @@ function EditSpotForm({ spot, setShowModal }) {
 
   console.log("one spot from edit spot ", spot);
 
-  const { id } = spot
-  console.log("SPOT ID from edit Form", id)
+  // const { id } = spot
+  console.log("SPOT ID from edit Form", spotId)
 
   useEffect(() => {
+    setImageUrl(spot && spot.imageUrl)
     setName(spot && spot.name);
     setType(spot && spot.type);
     setAddress(spot && spot.address);
@@ -33,6 +35,10 @@ function EditSpotForm({ spot, setShowModal }) {
   useEffect(() => {
     dispatch(fetchSpots())
   }, [dispatch])
+
+  let editedImageUrl = (e) => {
+    setImageUrl(e.target.value)
+  }
 
   let editedName = (e) => {
     setName(e.target.value);
@@ -67,7 +73,7 @@ function EditSpotForm({ spot, setShowModal }) {
 
     const payload = {
       name,
-      // imageUrl,
+      imageUrl,
       type,
       address,
       state,
@@ -76,10 +82,10 @@ function EditSpotForm({ spot, setShowModal }) {
       description,
     };
 
-    let spotEdited = await dispatch(editSpotThunk(payload, id));
+    let spotEdited = await dispatch(editSpotThunk(payload, spotId));
     if (spotEdited) {
       setShowModal(false)
-      history.push(`/spots/${id}`);
+      history.push(`/spots/${spotEdited.id}`);
     }
   };
 
@@ -87,6 +93,20 @@ function EditSpotForm({ spot, setShowModal }) {
     <form className="edit-spot-form" onSubmit={handleSubmit}>
       <div className="edit-spot-inner-container">
         <ul id="lists">
+        <li>
+            <label>
+              {" "}
+              Edit Image:
+              <input
+                id="input-image"
+                type="text"
+                value={imageUrl}
+                // maxLength={60}
+                // required
+                onChange={editedImageUrl}
+              />
+            </label>
+          </li>
           <li>
             <label>
               {" "}

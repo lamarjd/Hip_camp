@@ -3,7 +3,7 @@ import { Modal } from '../../../context/Modal';
 import EditSpotForm from './EditSpotForm';
 import "../Modals.css"
 
-function EditSpotFormModal({ spot }) {
+function EditSpotFormModal({ spot, spotId }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ function EditSpotFormModal({ spot }) {
       <button className="sign-in" onClick={() => setShowModal(true)}>Edit Spot</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSpotForm spot={spot} showModal={showModal} setShowModal={setShowModal}/>
+          <EditSpotForm spotId={spotId} spot={spot} showModal={showModal} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
