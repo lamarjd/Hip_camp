@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
+import "../../../context/Modal.css"
 
 function CreateSpotForm() {
   const dispatch = useDispatch();
@@ -86,7 +87,7 @@ function CreateSpotForm() {
   return (
     <div className="create-spot-container">
       <form className="spot-form" onSubmit={handleSubmit}>
-        <ul>
+        <ul id="lists">
           <li>
             <label>
               <input

@@ -24,4 +24,30 @@
     position: absolute;
     border-radius: 10px;
     background-color:white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 50vh;
+    width: 50vw;
+    /* border: 2px solid red; */
   }
+
+  .create-spot-container {
+    border: 2px dotted blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vw;
+  }
+  
+  #lists {
+    border: 2px dotted blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+  }
+
