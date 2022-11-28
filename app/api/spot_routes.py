@@ -30,7 +30,7 @@ def get_one_spot(id):
 
     return make_response(new_spot, 200)
 
-@spot_routes.route('/new_spot', methods=["GET", "POST"])
+@spot_routes.route('/new_spot', methods=["POST"])
 def new_spot():
     form = NewSpot()
     form['csrf_token'].data = request.cookies['csrf_token']

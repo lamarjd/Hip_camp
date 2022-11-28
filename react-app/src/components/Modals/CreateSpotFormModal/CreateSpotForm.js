@@ -8,7 +8,7 @@ function CreateSpotForm() {
   const history = useHistory();
   const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Campsite");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -73,7 +73,7 @@ function CreateSpotForm() {
     if (spotCreated) {
       setImageUrl("");
       setName("");
-      setType("");
+      setType("Campsite");
       setAddress("");
       setCity("");
       setState("");
