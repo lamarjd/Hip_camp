@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import CreateSpotForm from '../Spots/CreateSpotForm';
 import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../Modals/LoginFormModal';
 import "./NavBar.css"
@@ -14,6 +15,12 @@ const NavBar = () => {
     sessionModals = (
       <>
       <LoginFormModal />
+      </>
+    )
+  } else {
+    sessionModals = (
+      <>
+      {/* <CreateSpotForm /> */}
       </>
     )
   }
@@ -57,6 +64,10 @@ const NavBar = () => {
      <NavLink to='/spots' exact={true}>
      See All Spots
      </NavLink>
+
+     {sessionUser &&
+    <CreateSpotForm />
+     }
     </div>
     </nav>
   );

@@ -21,8 +21,9 @@ useEffect(() => {
 
   return (
     <div>
-      <CreateSpotForm />
+      
 
+      {/* <CreateSpotForm />       */}
     <div className="spot-list">
     {spots.map((spot => (
       <div className="single-spots-container">
@@ -38,7 +39,7 @@ useEffect(() => {
       <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>Delete</button>
     </div>
     )))}
-    </div>      
+    </div>
     </div>
   )
 }
