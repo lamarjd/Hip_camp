@@ -108,6 +108,7 @@ export const editSpotThunk = (spot,id) => async dispatch => {
     });
     if (response.ok) {
         const spot = await response.json();
+        console.log("Spot from Edit Thunk", spot)
 
         dispatch(editSpotAction(spot))
         return spot
@@ -199,8 +200,12 @@ const spotReducer = (state = initialState, action) => {
         case EDIT_SPOT:
 
             newState= {...state}
+            console.log("New State", newState)
+            console.log("New State Action", action)
             newState[action.spot.id]= action.spot
+            console.log("New State Action Before", newState)
             newState[action.spot.id]["reviews"]= state[action.spot.id].reviews
+            console.log("New State Action After", newState)
 
             return newState
   

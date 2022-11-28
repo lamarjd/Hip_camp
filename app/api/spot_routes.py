@@ -62,7 +62,8 @@ def edit_spot(id):
     if(not one_spot):
         return "<h1>No Spot</h1>"
     if one_spot.user_id == current_user.id:
-        
+        print("form data", form.data)
+        print("One spot from routes", one_spot.to_dict())
         if form.validate_on_submit():
             one_spot.name = form.data["name"]
             one_spot.imageUrl = form.data["imageUrl"]

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
+import "../../../context/Modal.css"
 
-function CreateSpotForm() {
+function CreateSpotForm({ showModal, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [imageUrl, setImageUrl] = useState("");
@@ -16,7 +17,7 @@ function CreateSpotForm() {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
 
   let updateImageUrl = (e) => {
     setImageUrl(e.target.value);
@@ -80,13 +81,15 @@ function CreateSpotForm() {
       setCountry("");
       setPrice(0);
       setDescription("");
+      setShowModal(false)
+      history.push(`/spots`)
     }
   };
 
   return (
     <div className="create-spot-container">
       <form className="spot-form" onSubmit={handleSubmit}>
-        <ul>
+        <ul id="lists">
           <li>
             <label>
               <input
