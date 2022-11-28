@@ -1,11 +1,29 @@
 
 import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import { useSelector } from 'react-redux';
+import LogoutButton from '../auth/LogoutButton';
+import LoginFormModal from '../Modals/LoginFormModal';
+import "./NavBar.css"
 
 const NavBar = () => {
+  const sessionUser = useSelector((state) => state.session.user)
+
+  let sessionModals;
+  if (!sessionUser) {
+    sessionModals = (
+      <>
+      <LoginFormModal />
+      </>
+    )
+  }
+
+
   return (
+
     <nav>
+      <div className="navbar">
+
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
@@ -13,9 +31,9 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
+          
+          {sessionModals}
+         
         </li>
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
@@ -31,9 +49,15 @@ const NavBar = () => {
           <LogoutButton />
         </li>
       </ul>
+
+      <div>
+      
+      </div>
+
      <NavLink to='/spots' exact={true}>
      See All Spots
      </NavLink>
+    </div>
     </nav>
   );
 }

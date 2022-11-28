@@ -1,0 +1,28 @@
+nav {
+    margin: 0;
+
+}
+
+.navbar {
+    width: 100%;
+    background-color: gray;
+    position: fixed;
+    top: 0;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-right: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+a:hover {
+    color: chartreuse;
+}
