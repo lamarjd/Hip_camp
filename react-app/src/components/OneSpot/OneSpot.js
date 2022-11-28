@@ -31,9 +31,7 @@ useEffect(() => {
 
   return (
     <div>
-      <EditSpotForm spotId={spotId} 
-      // oneSpot={oneSpot}
-      />
+ 
       
 
       <h3>Image</h3>
@@ -64,6 +62,9 @@ useEffect(() => {
      <br />
      <h3>UserID:</h3>
      {spot.user_id}
+     <EditSpotForm spotId={spotId} 
+      // oneSpot={oneSpot}
+      />
     </div>
   )
 }

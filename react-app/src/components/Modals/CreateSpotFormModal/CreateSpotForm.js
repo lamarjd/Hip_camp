@@ -4,12 +4,12 @@ import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
 import "../../../context/Modal.css"
 
-function CreateSpotForm() {
+function CreateSpotForm({ showModal, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Campsite");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -17,7 +17,7 @@ function CreateSpotForm() {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
 
   let updateImageUrl = (e) => {
     setImageUrl(e.target.value);
@@ -74,13 +74,15 @@ function CreateSpotForm() {
     if (spotCreated) {
       setImageUrl("");
       setName("");
-      setType("");
+      setType("Campsite");
       setAddress("");
       setCity("");
       setState("");
       setCountry("");
       setPrice(0);
       setDescription("");
+      setShowModal(false)
+      history.push(`/spots`)
     }
   };
 
