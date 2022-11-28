@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 
 import { fetchSpots, editSpotThunk, deleteSpotThunk } from "../../store/spot"
-import CreateSpotForm from './CreateSpotForm'
 import "./Spots.css"
 
 

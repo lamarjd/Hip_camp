@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import CreateSpotForm from '../Spots/CreateSpotForm';
+import CreateSpotFormModal from '../Modals/CreateSpotFormModal';
 import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../Modals/LoginFormModal';
 import "./NavBar.css"
@@ -66,7 +66,7 @@ const NavBar = () => {
      </NavLink>
 
      {sessionUser &&
-    <CreateSpotForm />
+    <CreateSpotFormModal />
      }
     </div>
     </nav>
