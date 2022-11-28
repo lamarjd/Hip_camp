@@ -4,7 +4,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom"
 // THUNKS Imports
 import { fetchOneSpot } from "../../store/spot"
 // Component and local imports
-import EditSpotForm from './EditSpotForm'
+import EditSpotFormModal from '../Modals/EditSpotFormModal'
 import "./OneSpot.css"
 
 function OneSpot() {
@@ -40,29 +40,29 @@ useEffect(() => {
       </div>
       
       <h3>Name:</h3>
-     {spot.name}
+     {spot?.name}
      <br />
      <h3>Type:</h3>
-     {spot.type}
+     {spot?.type}
      <br />
      <h3>Address:</h3>
-     {spot.address}
+     {spot?.address}
      <br />
      <h3>State:</h3>
-     {spot.state}
+     {spot?.state}
      <br />
      <h3>Country:</h3>
-     {spot.country}
+     {spot?.country}
      <br />
      <h3>Price:</h3>
-     {spot.price}
+     {spot?.price}
      <br />
      <h3>Description:</h3>
-     {spot.description}
+     {spot?.description}
      <br />
      <h3>UserID:</h3>
-     {spot.user_id}
-     <EditSpotForm spotId={spotId} 
+     {spot?.user_id}
+     <EditSpotFormModal spot={spot} 
       // oneSpot={oneSpot}
       />
     </div>

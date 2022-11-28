@@ -41,6 +41,16 @@
     height: 50vh;
     width: 50vw;
   }
+
+  .edit-spot-form {
+    border: 2px dotted red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vw;
+  }
   
   #lists {
     border: 2px dotted blue;
@@ -48,6 +58,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 75%;
+    width: 50%;
   }
 
