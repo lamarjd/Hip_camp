@@ -35,7 +35,7 @@ const NavBar = () => {
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             HI-C
-            <i class="fa-solid fa-campground"></i>
+            <i className="fa-solid fa-campground"></i>
             MP
           </NavLink>
         </li>
