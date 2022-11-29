@@ -18,7 +18,7 @@ def get_all_spots():
         # return make_response(response, 200)
 
 
-@spot_routes.route('<int:id>')
+@spot_routes.route('/<int:id>')
 def get_one_spot(id):
     spot = Spot.query.get(id)
     if not spot:

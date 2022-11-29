@@ -28,6 +28,7 @@
 .single-spots-container {
     border: 2px solid black;
     display: flex;
+    height: 70%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -36,10 +37,11 @@
 .all-spot-img {
     /* border: 1px dotted red;
     border-radius: 12px; */
-    display: flex;
-    justify-items: center;
-    margin-top: 10px;
-    margin-left: 12%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* margin-top: 10px;
+    margin-left: 12%; */
     /* margin-right: 50%; */
 }
 

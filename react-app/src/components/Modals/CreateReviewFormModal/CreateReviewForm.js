@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { fetchOneSpot } from '../../../store/spot'
 import { createReviewThunk } from '../../../store/review' 
 
-function CreateReviewForm({ spot }) {
+function CreateReviewForm({ spot, setShowModal }) {
   
   console.log("spot from ReviewForm", spot)
 
@@ -16,11 +16,11 @@ function CreateReviewForm({ spot }) {
   let spot_id = id
 
   const [body, setBody] = useState("")
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(1)
 
   useEffect(() => {
     dispatch(fetchOneSpot(id))
-  }, [dispatch, body, rating])
+  }, [dispatch, body, rating, spot.review])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,8 @@ function CreateReviewForm({ spot }) {
     }
 
     setBody("")
-    setRating(0)
+    setRating(1)
+    setShowModal(false)
 
     let reviewCreated = await dispatch(createReviewThunk(payload, id))
 
@@ -58,11 +59,11 @@ function CreateReviewForm({ spot }) {
 
         <label> Select Rating
           <select onChange={(e) => setRating(e.target.value)}>
-            <option value="1">1 Star</option>
-            <option value="2">2 Star</option>
-            <option value="3">3 Star</option>
-            <option value="4">4 Star</option>
-            <option value="5">5 Star</option>
+            <option value={1}>1 Star</option>
+            <option value={2}>2 Star</option>
+            <option value={3}>3 Star</option>
+            <option value={4}>4 Star</option>
+            <option value={5}>5 Star</option>
           </select>
         </label>
         
