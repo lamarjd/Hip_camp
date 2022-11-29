@@ -23,8 +23,7 @@ def seed_reviews():
         user_id=3, 
         rating=4,
         body="It was a wonderful time and the the area had some amazing view. Would recommend again."
-        )
-    
+        )    
    
 
     db.session.add(review1)
