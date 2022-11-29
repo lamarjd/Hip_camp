@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 // THUNKS Imports
 import { fetchOneSpot } from "../../store/spot";
-import { getAllReviews } from "../../store/review";
+import { getAllReviews, deleteReviewThunk } from "../../store/review";
 // Component and local imports
 import EditSpotFormModal from "../Modals/EditSpotFormModal";
 import EditSpotForm from "../Modals/EditSpotFormModal/EditSpotForm";
@@ -79,12 +79,15 @@ console.log("One Spot", oneSpot)
 
       <div className="reviews">
         {reviews?.map((review) => (
-          
+          <span>
           <p key={review.id}>{review.body}</p>
+          <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
+          </span>
           ))}
-          <div>Testing</div>
       </div>
+
           <CreateReviewFormModal spot={spot} spotId={spotId} />
+
     </div>
   );
 }

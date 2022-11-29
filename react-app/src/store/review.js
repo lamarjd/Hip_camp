@@ -99,18 +99,20 @@ export const editReviewThunk = (review, id) => async dispatch => {
 }
 
 export const deleteReviewThunk = (reviewId) => async dispatch => {
+    console.log("review ID from Thunk", reviewId)
     const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-
+    console.log("response from delete review thunk", response)
     if (response.ok){
         const review = `${reviewId}`
+        console.log("review from backend", review)
         dispatch(removeReviewAction(review))
     }
-    throw new Error("Cannot delete this review")
+    // throw new Error("Cannot delete this review")
 }
 
 // ================
@@ -150,7 +152,10 @@ const reviewReducer = (state=initialState, action) => {
 
         case DELETE_REVIEW: {
             newState = {...state}
+            console.log("Delete reducer before", newState)
             delete newState[action.reviewId]
+            console.log("Delete ACTION reducer AFTER", action)
+            console.log("Delete reducer AFTER", newState)
             return newState
         }
 

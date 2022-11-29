@@ -59,8 +59,10 @@ def edit_review(id):
 
 @review_routes.route('/<int:id>', methods=["DELETE"])
 def delete_review(id):
+    print("ID from review route", id)
     if current_user.is_authenticated:
         review = Review.query.get(id)
+        print("review query from route", review.to_dict())
         db.session.delete(review)
         db.session.commit()
         return make_response("Successfully Deleted", 200)

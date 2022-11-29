@@ -20,7 +20,7 @@ function CreateReviewForm({ spot, setShowModal }) {
 
   useEffect(() => {
     dispatch(fetchOneSpot(id))
-  }, [dispatch, body, rating, spot.review])
+  }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
