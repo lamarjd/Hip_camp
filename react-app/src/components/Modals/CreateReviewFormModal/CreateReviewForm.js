@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { fetchSpots } from '../../../store/spot'
+import { fetchOneSpot } from '../../../store/spot'
 import { createReviewThunk } from '../../../store/review' 
 
 function CreateReviewForm({ spot }) {
@@ -19,7 +19,7 @@ function CreateReviewForm({ spot }) {
   const [rating, setRating] = useState(0)
 
   useEffect(() => {
-    dispatch(fetchSpots())
+    dispatch(fetchOneSpot(id))
   }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {

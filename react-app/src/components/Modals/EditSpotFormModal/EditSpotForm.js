@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { editSpotThunk, fetchSpots } from "../../../store/spot";
+import { editSpotThunk, fetchOneSpot } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
 import "../../../context/Modal.css"
 
@@ -34,7 +34,7 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
   }, [spot]);
 
   useEffect(() => {
-    dispatch(fetchSpots())
+    dispatch(fetchOneSpot(spotId))
   }, [dispatch])
 
   let editedImageUrl = (e) => {

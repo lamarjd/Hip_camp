@@ -21,17 +21,20 @@ function AllSpots() {
     <div>
       {/* <CreateSpotForm />       */}
       <div className="spot-list">
-        {spots.map((spot) => (
+        {spots?.map((spot) => (
           <div className="single-spots-container">
-            <NavLink key={spot.id} to={`/spots/${spot.id}`}>
+            <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
               <div className="all-spot-img">
-                <img id="spot-pic" alt="spot-pic" src={spot.imageUrl} />
+                <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} />
               </div>
-              <h1>{spot.name}</h1>
+              <h1>{spot?.name}</h1>
             </NavLink>
+
+            {/* {sessionUser.id === spot.user_id &&  */}
             <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
               Delete
             </button>
+             {/* } */}
           </div>
         ))}
 

@@ -79,8 +79,10 @@ console.log("One Spot", oneSpot)
 
       <div className="reviews">
         {reviews?.map((review) => (
+          
           <p key={review.id}>{review.body}</p>
           ))}
+          <div>Testing</div>
       </div>
           <CreateReviewFormModal spot={spot} spotId={spotId} />
     </div>
