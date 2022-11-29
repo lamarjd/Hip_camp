@@ -8,6 +8,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import AllSpots from './components/Spots/AllSpots';
 import OneSpot from './components/OneSpot/OneSpot.js';
+import SplashPage from "./components/SplashPage/SplashPage"
 import { authenticate } from './store/session';
 import Test from './components/Test/test';
 
@@ -54,7 +55,8 @@ function App() {
 
 
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          {/* <h1>My Home Page</h1> */}
+          <SplashPage />
         </Route>
       </Switch>
     </BrowserRouter>

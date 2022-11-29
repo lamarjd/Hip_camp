@@ -5,3 +5,16 @@
     justify-content: center;
     align-items: start;
 } */
+:root {
+    /* font-family: 'Indie Flower', cursive; */
+
+    /* font-family: 'Special Elite', cursive; */
+
+    /* font-family: 'Play', sans-serif; */
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+body {
+    background-color: rgb(243, 242, 239);
+}

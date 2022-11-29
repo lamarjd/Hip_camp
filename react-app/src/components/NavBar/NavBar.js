@@ -34,7 +34,9 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            HI-C
+            <i class="fa-solid fa-campground"></i>
+            MP
           </NavLink>
         </li>
         <li>
@@ -42,16 +44,18 @@ const NavBar = () => {
           {sessionModals}
          
         </li>
+        {!sessionUser && 
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
         </li>
-        <li>
+        }
+        {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <LogoutButton />
         </li>
@@ -65,9 +69,9 @@ const NavBar = () => {
      See All Spots
      </NavLink>
 
-     {sessionUser &&
+     {/* {sessionUser &&
     <CreateSpotFormModal />
-     }
+     } */}
     </div>
     </nav>
   );
