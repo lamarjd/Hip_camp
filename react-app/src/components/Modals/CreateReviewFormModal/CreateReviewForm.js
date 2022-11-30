@@ -5,15 +5,15 @@ import { useHistory } from 'react-router-dom';
 import { fetchOneSpot } from '../../../store/spot'
 import { createReviewThunk } from '../../../store/review' 
 
-function CreateReviewForm({ spot, setShowModal }) {
+function CreateReviewForm({ oneSpot, setShowModal }) {
   
-  console.log("spot from ReviewForm", spot)
+  console.log("oneSpot from ReviewForm", oneSpot)
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { id } = spot
-  let spot_id = id
+  const { id } = oneSpot
+  // let spot_id = id
 
   const [body, setBody] = useState("")
   const [rating, setRating] = useState(1)
@@ -28,7 +28,7 @@ function CreateReviewForm({ spot, setShowModal }) {
     const payload = {
       body,
       rating,
-      spot_id
+      // spot_id
     }
 
     setBody("")
@@ -38,7 +38,7 @@ function CreateReviewForm({ spot, setShowModal }) {
     let reviewCreated = await dispatch(createReviewThunk(payload, id))
 
     if (reviewCreated) {
-      history.push(`/spots/${spot_id}`)
+      history.push(`/spots/${id}`)
     }
   }
 

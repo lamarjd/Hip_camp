@@ -99,9 +99,9 @@ console.log("One Spot", oneSpot)
           <span>
             {console.log("review within the map", review)}
           
-          <p key={review.id}>Body: {review.body}</p>
+          <p key={review.body}>Body: {review.body}</p>
 
-          <p key={review.id}>Rating: {review.rating} / 5</p>
+          <p key={review.rating}>Rating: {review.rating} / 5</p>
           
           <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button>
           
