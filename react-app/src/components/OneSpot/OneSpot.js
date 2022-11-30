@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 // THUNKS Imports
 import { fetchOneSpot } from "../../store/spot";
-import { getAllReviews, deleteReviewThunk } from "../../store/review";
+import { getAllReviews, deleteReviewThunk, editReviewThunk } from "../../store/review";
 // Component and local imports
 import EditSpotFormModal from "../Modals/EditSpotFormModal";
 import EditSpotForm from "../Modals/EditSpotFormModal/EditSpotForm";
 import CreateReviewFormModal from "../Modals/CreateReviewFormModal";
 
 import "./OneSpot.css";
+import EditReviewFormModal from "../Modals/EditReviewFormModal";
 
 function OneSpot() {
   const dispatch = useDispatch();
@@ -100,10 +101,15 @@ console.log("One Spot", oneSpot)
 
           <p key={review.id}>Rating: {review.rating} / 5</p>
           
+          <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button>
+          
+          <EditReviewFormModal filteredReviews={filteredReviews} spot={spot} spotId={spotId}/>
+          
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>
           ))}
       </div>
+
 
           <CreateReviewFormModal spot={spot} spotId={spotId} />
 

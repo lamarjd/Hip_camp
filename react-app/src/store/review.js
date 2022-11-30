@@ -42,7 +42,7 @@ const removeReviewAction = reviewId => {
 // ================
 
 //  THUNK ACTIONS
-export const getOneReview = (id) => async dispatch => {
+export const getOneReviewThunk = (id) => async dispatch => {
     const response = await fetch(`/api/reviews/${id}`)
 
     if (response.ok){
