@@ -69,7 +69,7 @@ def edit_spot(id):
             one_spot.imageUrl = form.data["imageUrl"]
             one_spot.type = form.data["type"]
             one_spot.user_id = current_user.id
-            one_spot.address = form.data["address"]
+            # one_spot.address = form.data["address"]
             one_spot.city = form.data["city"]
             one_spot.state = form.data["state"]
             one_spot.country = form.data["country"]

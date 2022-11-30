@@ -17,10 +17,10 @@ function OneSpot() {
   const { spotId } = useParams();
   // console.log("Spot Id", spotId);
 
-  const spot = useSelector((state) => {
-    return state.spots[spotId];
-  });
-  console.log("Spot Selector", spot?.review);
+  // const spot = useSelector((state) => {
+  //   return state.spots[spotId];
+  // });
+  // console.log("Spot Selector", spot);
 
   // const reviews = spot?.review;
   // console.log("review from spot", reviews);
@@ -33,12 +33,12 @@ function OneSpot() {
   console.log("Filtered reviews", filteredReviews)
 
 
-  /* ALT WAY TO SELECT THE SPOT FROM STORE
+
 const spots = useSelector(state => Object.values(state.spots))
 
 const oneSpot = spots.filter((spot) => spot.id === +spotId)[0]
 console.log("One Spot", oneSpot)
-*/
+
 
   useEffect(() => {
     dispatch(fetchOneSpot(spotId));
@@ -50,35 +50,35 @@ console.log("One Spot", oneSpot)
     <div className="review-container">
       <h3>Image</h3>
       <div className="img-container">
-        <img id="spot-img" alt="spot-img" src={spot?.imageUrl} />
+        <img id="spot-img" alt="spot-img" src={oneSpot?.imageUrl} />
       </div>
 
       <h3>State:</h3>
-      {spot?.state}
+      {oneSpot?.state}
       <br />
       <h3>Country:</h3>
-      {spot?.country}
+      {oneSpot?.country}
       <br />
 
       <h3>Name:</h3>
-      {spot?.name}
+      {oneSpot?.name}
       <br />
 
       <h3>Type:</h3>
-      {spot?.type}
+      {oneSpot?.type}
       <br />
       {/* <h3>Address:</h3>
       {spot?.address}
       <br /> */}
       <h3>Price:</h3>
-      {spot?.price}
+      {oneSpot?.price}
       <br />
       <h3>Description:</h3>
-      {spot?.description}
+      {oneSpot?.description}
       <br />
       <h3>UserID:</h3>
-      {spot?.user_id}
-      <EditSpotFormModal spot={spot} spotId={spotId} />
+      {oneSpot?.user_id}
+      <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
 
       {/* <EditSpotForm spot={spot} 
       spotId={spotId}/> */}
@@ -95,7 +95,9 @@ console.log("One Spot", oneSpot)
 
       <div className="reviews">
         {filteredReviews?.map((review) => (
+
           <span>
+            {console.log("review within the map", review)}
           
           <p key={review.id}>Body: {review.body}</p>
 
@@ -103,7 +105,7 @@ console.log("One Spot", oneSpot)
           
           <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button>
           
-          <EditReviewFormModal filteredReviews={filteredReviews} spot={spot} spotId={spotId}/>
+          <EditReviewFormModal filteredReviews={filteredReviews} oneSpot={oneSpot} spotId={spotId}/>
           
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>
@@ -111,7 +113,7 @@ console.log("One Spot", oneSpot)
       </div>
 
 
-          <CreateReviewFormModal spot={spot} spotId={spotId} />
+          <CreateReviewFormModal oneSpot={oneSpot} spotId={spotId} />
 
     </div>
   );

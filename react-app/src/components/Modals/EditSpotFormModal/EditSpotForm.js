@@ -4,34 +4,35 @@ import { editSpotThunk, fetchOneSpot } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
 import "../../../context/Modal.css"
 
-function EditSpotForm({ spotId, spot, setShowModal }) {
+function EditSpotForm({ spotId, oneSpot, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("")
   const [type, setType] = useState("");
-  const [address, setAddress] = useState("");
+  // const [address, setAddress] = useState("");
+  const [city, setCity] = useState("")
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
-  console.log("one spot from edit spot ", spot);
+  console.log("one spot from edit spot ", oneSpot);
 
   // const { id } = spot
   console.log("SPOT ID from edit Form", spotId)
 
   useEffect(() => {
-    setImageUrl(spot && spot.imageUrl)
-    setName(spot && spot.name);
-    setType(spot && spot.type);
-    setAddress(spot && spot.address);
-    setState(spot && spot.state);
-    setCountry(spot && spot.country);
-    setPrice(spot && spot.price);
-    setDescription(spot && spot.description);
-  }, [spot]);
+    setImageUrl(oneSpot && oneSpot.imageUrl)
+    setName(oneSpot && oneSpot.name);
+    setType(oneSpot && oneSpot.type);
+    // setAddress(oneSpot && oneSpot.address);
+    setState(oneSpot && oneSpot.state);
+    setCountry(oneSpot && oneSpot.country);
+    setPrice(oneSpot && oneSpot.price);
+    setDescription(oneSpot && oneSpot.description);
+  }, [oneSpot]);
 
   useEffect(() => {
     dispatch(fetchOneSpot(spotId))
@@ -49,8 +50,12 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
     setType(e.target.value);
   };
 
-  let editedAddress = (e) => {
-    setAddress(e.target.value);
+  // let editedAddress = (e) => {
+  //   setAddress(e.target.value);
+  // };
+  
+  let editedCity = (e) => {
+    setCity(e.target.value);
   };
 
   let editedState = (e) => {
@@ -77,6 +82,7 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
       imageUrl,
       type,
       // address,
+      city,
       state,
       country,
       price,
@@ -84,6 +90,9 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
     };
 
     let spotEdited = await dispatch(editSpotThunk(payload, spotId));
+
+    console.log("Edited Spot", spotEdited)
+
     if (spotEdited) {
       setShowModal(false)
       history.push(`/spots/${spotEdited.id}`);
@@ -132,21 +141,21 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
               </select>
             </label>
           </li>
-          <li>
+          {/* <li>
             <label>
               {" "}
-              Edit Address:
+              Edit City:
               <input
-                id="input-address"
+                id="input-city"
                 type="text"
-                value={address}
+                value={city}
                 // maxLength={60}
                 minLength={3}
                 required
-                onChange={editedAddress}
+                onChange={editedCity}
               />
             </label>
-          </li>
+          </li> */}
           <li>
             <label>
               {" "}
