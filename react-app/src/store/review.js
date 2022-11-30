@@ -50,7 +50,7 @@ export const getOneReviewThunk = (id) => async dispatch => {
         dispatch(oneReview(singleReview))
         return singleReview
     }
-    throw new Error("Can't get this review")
+    // throw new Error("Can't get this review")
 }
 
 export const getAllReviews = () => async dispatch => {
