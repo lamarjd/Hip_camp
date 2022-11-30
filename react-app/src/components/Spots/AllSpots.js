@@ -18,9 +18,16 @@ function AllSpots() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="all-spots-container">
       {/* <CreateSpotForm />       */}
+        <div className="options-container">
+          <span className="single-option">
+          <h3>Campsites</h3>
+          <h3>Lodging</h3>
+          </span>
+        </div>
       <div className="spot-list">
+
         {spots?.map((spot) => (
           <div key={spot.id}className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
@@ -28,16 +35,21 @@ function AllSpots() {
               <div className="all-spot-img">
                 <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} />
 
-              </div>
-              
               <h1>{spot?.name}</h1>
-            </NavLink>
+              </div>
 
-            {/* {sessionUser.id === spot.user_id &&  */}
+            </NavLink>
+            <br/>
+
+            <div className="delete-spot">
+
+
+            {sessionUser.id === spot.user_id && 
             <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
               Delete
             </button>
-             {/* } */}
+             }
+            </div>
           </div>
         ))}
 

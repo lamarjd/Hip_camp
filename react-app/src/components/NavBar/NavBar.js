@@ -56,7 +56,7 @@ const NavBar = () => {
             Users
           </NavLink>
         </li> */}
-        <li>
+        <li id="logout">
           <LogoutButton />
         </li>
       </ul>
