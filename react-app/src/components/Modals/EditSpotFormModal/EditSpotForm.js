@@ -76,7 +76,7 @@ function EditSpotForm({ spotId, spot, setShowModal }) {
       name,
       imageUrl,
       type,
-      address,
+      // address,
       state,
       country,
       price,

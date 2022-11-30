@@ -31,7 +31,7 @@ const NavBar = () => {
     <nav>
       <div className="navbar">
 
-      <ul>
+      <ul className="nav-list-items">
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             HI-C
@@ -65,9 +65,9 @@ const NavBar = () => {
       
       </div>
 
-     <NavLink to='/spots' exact={true}>
+     {/* <NavLink to='/spots' exact={true}>
      See All Spots
-     </NavLink>
+     </NavLink> */}
 
      {/* {sessionUser &&
     <CreateSpotFormModal />

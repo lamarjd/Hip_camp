@@ -8,24 +8,32 @@ nav {
     background-color: rgb(243, 242, 239);
     position: fixed;
     top: 0;
+    height: 8vh;
     /* border-bottom: 1px solid blue; */
+    /* display: inline-flex; */
+    /* display: flex; */
+    align-items: center;
     
 }
 
-ul {
+.nav-list-items {
     list-style-type: none;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 25%;
-    padding-right: 40px;
+    align-items: start;
+    gap: 30%;
+    margin-top: 1%;
+    /* padding-right: 40px; */
     font-weight: bolder;
     font-size: x-large;
+    /* border: 2px solid red; */
+    height: 50%;
+    letter-spacing: 2px
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #0f3806;
 }
 
 a:hover {
