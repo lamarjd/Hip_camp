@@ -7,6 +7,8 @@
 
 .all-spots-container {
     /* border: 2px dotted blue; */
+    margin-top: 5%;
+    min-height: 1180px;
 }
 
 #spot-pic {
@@ -26,7 +28,7 @@
     /* display: flex; */
     /* flex: 2 1 0%; */
     min-width: 0px;
-    height: 100vh;
+    height: 1500px;
     /* width: 100%; */
     background-color: white;
     /* margin-top: -10;     */
@@ -39,7 +41,7 @@
     padding-right: 0px;
     /* margin-left: 16px;
     margin-right: 16px; */
-    margin-top: 0;
+    margin-top: 50px;
     display: flex;
     height: 70%;
     width: 100%;
