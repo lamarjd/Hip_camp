@@ -103,9 +103,9 @@ console.log("One Spot", oneSpot)
 
           <p key={review.rating}>Rating: {review.rating} / 5</p>
           
-          <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button>
+          {/* <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button> */}
           
-          <EditReviewFormModal filteredReviews={filteredReviews} oneSpot={oneSpot} spotId={spotId}/>
+          <EditReviewFormModal review={review} oneSpot={oneSpot} spotId={spotId}/>
           
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>

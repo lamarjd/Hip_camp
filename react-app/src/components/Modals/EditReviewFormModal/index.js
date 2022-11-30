@@ -3,7 +3,7 @@ import { Modal } from '../../../context/Modal';
 import EditReviewForm from './EditReviewForm';
 import "../Modals.css"
 
-function EditReviewFormModal({ filteredReviews, spot, spotId }) {
+function EditReviewFormModal({ review, oneSpot, spotId }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ function EditReviewFormModal({ filteredReviews, spot, spotId }) {
       <button className="sign-in" onClick={() => setShowModal(true)}>Edit Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditReviewForm filteredReviews={filteredReviews} spotId={spotId} spot={spot} showModal={showModal} setShowModal={setShowModal}/>
+          <EditReviewForm review={review} spotId={spotId} oneSpot={oneSpot} showModal={showModal} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

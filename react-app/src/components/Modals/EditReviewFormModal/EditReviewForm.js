@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editReviewThunk, getOneReviewThunk } from '../../../store/review';
 import { useHistory } from "react-router-dom";
 
-function EditReviewForm({ filteredReviews, spotId, spot, setShowModal }) {
+function EditReviewForm({ review, spotId, oneSpot, setShowModal }) {
 
 const dispatch = useDispatch();
 const history = useHistory();
 
+console.log("review from Edit Review Form", review)
 
-const [body, setBody] = useState("")
-const [rating, setRating] = useState(1)
+// const review = useSelector((state) => state.reviews)
+// console.log("review selector", review)
+
+
+const [body, setBody] = useState(review?.body)
+const [rating, setRating] = useState(review?.rating)
 
 let editedBody = (e) => {
     setBody(e.target.value)
@@ -23,9 +28,9 @@ let editedBody = (e) => {
 
 
 useEffect(() => {
-    setBody(filteredReviews && filteredReviews.body)
-    setRating(filteredReviews && filteredReviews.rating);
-}, [filteredReviews]);
+    // setBody(review && review.body)
+    // setRating(review && review.rating);
+}, [review]);
 
 useEffect(() => {
     dispatch(getOneReviewThunk(spotId))
@@ -40,7 +45,7 @@ useEffect(() => {
       body,
     };
 
-let editedReview = await dispatch(editReviewThunk(payload))
+let editedReview = await dispatch(editReviewThunk(payload, review.id))
 
 if (editedReview) {
     setShowModal(false)
