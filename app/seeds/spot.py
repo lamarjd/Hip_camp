@@ -19,7 +19,7 @@ def seed_spots():
         
     spot2 = Spot(
         name='Mendocino Magic', 
-        imageUrl="https://hipcamp-res.cloudinary.com/images/c_pad,e_blur:500,f_auto,q_60,w_128/v1626216309/campground-photos/ujh9b7a56y2jqoqqpyyt/mendocino-magic-lakeside-camp-northern-california.jpg",
+        imageUrl="https://res.cloudinary.com/dncypdqkb/image/upload/v1669616348/HipCamp/Paradise%20at%20Ponder%20Acres/q3vfrvbdkown7pvsewzw_qvw43u.jpg",
         user_id=2, 
         type="Campsite",
         address="312 Electric Avenue",

@@ -1,8 +1,8 @@
-"""New Seeders
+"""New Seeds
 
-Revision ID: 44c614201c5c
+Revision ID: 1bbc7cecfe1a
 Revises: 
-Create Date: 2022-11-30 01:11:23.256463
+Create Date: 2022-11-30 01:24:21.759549
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '44c614201c5c'
+revision = '1bbc7cecfe1a'
 down_revision = None
 branch_labels = None
 depends_on = None
