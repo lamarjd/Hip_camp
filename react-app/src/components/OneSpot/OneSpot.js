@@ -82,13 +82,21 @@ console.log("One Spot", oneSpot)
       spotId={spotId}/> */}
 
 
-      {filteredReviews?.length == 0 ? (<h3>No Reviews</h3>) :( <h3> Reviews:</h3>)}
+      {filteredReviews?.length == 0 ? (
+        
+        <h3>No Reviews</h3>
+      ) : ( 
+      <div className="total-reviews">
+        <h3> Reviews({filteredReviews.length})</h3> 
+      </div>
+      )}
 
       <div className="reviews">
         {filteredReviews?.map((review) => (
           <span>
           <p key={review.id}>Body: {review.body}</p>
           <p key={review.id}>Rating: {review.rating}</p>
+          
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>
           ))}

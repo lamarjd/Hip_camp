@@ -10,3 +10,11 @@
     height: 100%;
     width: 100%;
 }
+
+.total-reviews {
+    border: 2px solid green;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
