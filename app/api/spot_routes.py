@@ -41,7 +41,7 @@ def new_spot():
             user_id = current_user.id,
             imageUrl = data["imageUrl"],
             type = data["type"],
-            address = data["address"],
+            # address = data["address"],
             city = data["city"],
             state = data["state"],
             country = data["country"],

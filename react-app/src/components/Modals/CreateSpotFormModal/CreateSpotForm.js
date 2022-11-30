@@ -10,7 +10,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
   const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState("Campsite");
-  const [address, setAddress] = useState("");
+  // const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
@@ -31,9 +31,9 @@ function CreateSpotForm({ showModal, setShowModal }) {
     setType(e.target.value);
   };
 
-  let updateAddress = (e) => {
-    setAddress(e.target.value);
-  };
+  // let updateAddress = (e) => {
+  //   setAddress(e.target.value);
+  // };
 
   let updateCity = (e) => {
     setCity(e.target.value);
@@ -62,7 +62,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
       name,
       imageUrl,
       type,
-      address,
+      // address,
       city,
       state,
       country,
@@ -75,7 +75,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
       setImageUrl("");
       setName("");
       setType("Campsite");
-      setAddress("");
+      // setAddress("");
       setCity("");
       setState("");
       setCountry("");
@@ -129,7 +129,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
             </label>
           </li>
 
-          <li>
+          {/* <li>
             <label>
               <input
                 className="spot-form-address-field"
@@ -141,7 +141,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 onChange={updateAddress}
               />
             </label>
-          </li>
+          </li> */}
 
           <li>
             <label>
