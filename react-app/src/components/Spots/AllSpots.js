@@ -22,7 +22,7 @@ function AllSpots() {
       {/* <CreateSpotForm />       */}
       <div className="spot-list">
         {spots?.map((spot) => (
-          <div className="single-spots-container">
+          <div key={spot.id}className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
               <div className="all-spot-img">
                 <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} />

@@ -21,9 +21,15 @@ function OneSpot() {
   });
   console.log("Spot Selector", spot?.review);
 
-  const reviews = spot?.review;
+  // const reviews = spot?.review;
+  // console.log("review from spot", reviews);
 
-  console.log("review from spot", reviews);
+  const rev = useSelector((state) => Object.values(state.reviews))
+  console.log("--------> Review selector", rev)
+
+  const filteredReviews = rev.filter((review) => review.spot_id === +spotId)
+
+  console.log("Filtered reviews", filteredReviews)
 
 
   /* ALT WAY TO SELECT THE SPOT FROM STORE
@@ -38,6 +44,7 @@ console.log("One Spot", oneSpot)
     dispatch(getAllReviews());
   }, [dispatch]);
 
+ 
   return (
     <div>
       <h3>Image</h3>
@@ -75,12 +82,13 @@ console.log("One Spot", oneSpot)
       spotId={spotId}/> */}
 
 
-      {reviews?.length == 0 ? (<h3>No Reviews</h3>) :( <h3> Reviews:</h3>)}
+      {filteredReviews?.length == 0 ? (<h3>No Reviews</h3>) :( <h3> Reviews:</h3>)}
 
       <div className="reviews">
-        {reviews?.map((review) => (
+        {filteredReviews?.map((review) => (
           <span>
-          <p key={review.id}>{review.body}</p>
+          <p key={review.id}>Body: {review.body}</p>
+          <p key={review.id}>Rating: {review.rating}</p>
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>
           ))}
