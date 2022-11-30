@@ -46,11 +46,18 @@ console.log("One Spot", oneSpot)
 
  
   return (
-    <div>
+    <div className="review-container">
       <h3>Image</h3>
       <div className="img-container">
         <img id="spot-img" alt="spot-img" src={spot?.imageUrl} />
       </div>
+
+      <h3>State:</h3>
+      {spot?.state}
+      <br />
+      <h3>Country:</h3>
+      {spot?.country}
+      <br />
 
       <h3>Name:</h3>
       {spot?.name}
@@ -59,15 +66,9 @@ console.log("One Spot", oneSpot)
       <h3>Type:</h3>
       {spot?.type}
       <br />
-      <h3>Address:</h3>
+      {/* <h3>Address:</h3>
       {spot?.address}
-      <br />
-      <h3>State:</h3>
-      {spot?.state}
-      <br />
-      <h3>Country:</h3>
-      {spot?.country}
-      <br />
+      <br /> */}
       <h3>Price:</h3>
       {spot?.price}
       <br />
@@ -87,15 +88,17 @@ console.log("One Spot", oneSpot)
         <h3>No Reviews</h3>
       ) : ( 
       <div className="total-reviews">
-        <h3> Reviews({filteredReviews.length})</h3> 
+        <h3> Reviews ({filteredReviews.length})</h3> 
       </div>
       )}
 
       <div className="reviews">
         {filteredReviews?.map((review) => (
           <span>
+          
           <p key={review.id}>Body: {review.body}</p>
-          <p key={review.id}>Rating: {review.rating}</p>
+
+          <p key={review.id}>Rating: {review.rating} / 5</p>
           
           <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button>
           </span>

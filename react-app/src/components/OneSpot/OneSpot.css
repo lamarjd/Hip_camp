@@ -1,3 +1,13 @@
+.review-container {
+    border: 2px solid yellow;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .img-container {
     border: 2px solid blue;
     height: 200px;
@@ -13,8 +23,24 @@
 
 .total-reviews {
     border: 2px solid green;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+.reviews {
+    border: 2px solid red;
+    width: 50%;
+
+    /* display: inline-flex; */
+
+}
+
+.reviews > span{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+
 
