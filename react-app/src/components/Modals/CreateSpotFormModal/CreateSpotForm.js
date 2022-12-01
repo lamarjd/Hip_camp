@@ -162,6 +162,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 placeholder="Spot Name"
                 type="text"
                 maxLength={60}
+                minLength={5}
                 value={name}
                 required
                 onChange={updateName}
@@ -201,8 +202,9 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 placeholder="Spot City"
                 type="text"
                 maxLength={60}
+                minLength={5}
                 value={city}
-                required
+                // required
                 onChange={updateCity}
               />
             </label>
@@ -229,6 +231,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 placeholder="Spot Country"
                 type="text"
                 maxLength={50}
+                minLength={3}
                 value={country}
                 required
                 onChange={updateCountry}

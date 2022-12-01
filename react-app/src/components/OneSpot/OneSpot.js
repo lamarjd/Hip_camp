@@ -12,6 +12,7 @@ import {
 import EditSpotFormModal from "../Modals/EditSpotFormModal";
 import EditSpotForm from "../Modals/EditSpotFormModal/EditSpotForm";
 import CreateReviewFormModal from "../Modals/CreateReviewFormModal";
+import defaultPic from "../../assets/wake-up.png"
 
 import "./OneSpot.css";
 import EditReviewFormModal from "../Modals/EditReviewFormModal";
@@ -85,7 +86,9 @@ function OneSpot() {
       </div>
 
       <div className="img-container">
-        <img id="spot-img" alt="spot-img" src={oneSpot?.imageUrl} />
+        <img id="spot-img" alt="spot-img" src={oneSpot?.imageUrl} 
+        onError={e => {e.target.src=`${defaultPic}`}}
+        />
       </div>
 
       <br />

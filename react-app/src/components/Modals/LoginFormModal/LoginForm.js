@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
 
   const user = useSelector(state => state.session.user);
-  console.log("User from LoginForm", user)
+  // console.log("User from LoginForm", user)
   const dispatch = useDispatch();
 
   // useEffect(() => {

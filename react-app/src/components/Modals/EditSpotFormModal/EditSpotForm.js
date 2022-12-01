@@ -99,8 +99,60 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
     }
   };
 
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const errors = [];
+    if (!editedImageUrl) {
+      errors.push("Spot must include an image")
+    }
+
+    if (!imageUrl.includes(".jpg" || ".png")) {
+      errors.push(
+        "Spot Image must be in the proper format (.jpg or .png)"
+      );
+    }
+
+    if (!name) {
+      errors.push("Spot must have a name")
+    }
+
+    if (!state) {
+      errors.push("Spot must have a State")
+    }
+    
+    if (!country) {
+      errors.push("Spot must have a Country")
+    }
+    
+    if (!price) {
+      errors.push("Spot must have a Price")
+    }
+    
+    if (!description) {
+      errors.push("Spot must have a Description")
+    }
+    
+    if (description.length < 20 || description.length > 2000) {
+      errors.push("Description must be between 20 and 2000 characters")
+    }
+
+    setErrors(errors)
+  }, [imageUrl, name, state, country, price, description])
+
+
   return (
     <form className="edit-spot-form" onSubmit={handleSubmit}>
+            <ul>
+        {errors &&
+          errors.map((error) => {
+            return (
+              <li className="errors" key={error}>
+                {error}
+              </li>
+            );
+          })}
+      </ul>
       <div className="edit-spot-inner-container">
         <ul id="lists">
         <li>
@@ -111,8 +163,8 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 id="input-image"
                 type="text"
                 value={imageUrl}
-                // maxLength={60}
-                // required
+                maxLength={250}
+                required
                 onChange={editedImageUrl}
               />
             </label>
@@ -125,8 +177,9 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 id="input-name"
                 type="text"
                 value={name}
-                // maxLength={60}
-                // required
+                maxLength={60}
+                minLength={5}
+                required
                 onChange={editedName}
               />
             </label>
@@ -141,7 +194,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
               </select>
             </label>
           </li>
-          {/* <li>
+          <li>
             <label>
               {" "}
               Edit City:
@@ -149,13 +202,13 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 id="input-city"
                 type="text"
                 value={city}
-                // maxLength={60}
-                minLength={3}
-                required
+                maxLength={60}
+                minLength={5}
+                // required
                 onChange={editedCity}
               />
             </label>
-          </li> */}
+          </li>
           <li>
             <label>
               {" "}
@@ -164,8 +217,8 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 id="input-state"
                 type="text"
                 value={state}
-                // maxLength={60}
-                // required
+                maxLength={50}
+                required
                 onChange={editedState}
               />
             </label>
@@ -178,8 +231,9 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 id="input-country"
                 type="text"
                 value={country}
-                // maxLength={60}
-                // required
+                maxLength={50}
+                minLength={3}
+                required
                 onChange={editedCountry}
               />
             </label>
@@ -193,7 +247,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
                 type="text"
                 value={price}
                 // maxLength={60}
-                // required
+                required
                 onChange={editedPrice}
               />
             </label>
@@ -205,9 +259,10 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
               <input
                 id="input-description"
                 type="text"
+                maxLength={2000}
+                minLength={20}
                 value={description}
-                // maxLength={60}
-                // required
+                required
                 onChange={editedDescription}
               />
             </label>

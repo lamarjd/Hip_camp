@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
 import { fetchSpots, editSpotThunk, deleteSpotThunk } from "../../store/spot";
+import defaultPic from "../../assets/wake-up.png"
 import "./Spots.css";
+
 
 function AllSpots() {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ function AllSpots() {
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
 
               <div className="all-spot-img">
-                <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} />
+                <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} 
+                onError={e => {e.target.src=`${defaultPic}`}}
+                />
 
               <h1>{spot?.name}</h1>
               </div>

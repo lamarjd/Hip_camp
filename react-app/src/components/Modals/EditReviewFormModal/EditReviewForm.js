@@ -15,6 +15,7 @@ console.log("review from Edit Review Form", review)
 
 const [body, setBody] = useState(review?.body)
 const [rating, setRating] = useState(review?.rating)
+const [errors, setErrors] = useState([]);
 
 let editedBody = (e) => {
     setBody(e.target.value)
@@ -26,10 +27,17 @@ let editedBody = (e) => {
 
 
 
-useEffect(() => {
-    // setBody(review && review.body)
-    // setRating(review && review.rating);
-}, [review]);
+  useEffect(() => { 
+    const errors = []
+     if(body.length < 20) {
+      errors.push("Review body must be longer than 20 characters") 
+    }
+    
+    if(body.length > 200) {
+      errors.push("Review body must be less than 200 characters") 
+    }
+      setErrors(errors) 
+    }, [body]) 
 
 useEffect(() => {
     dispatch(getOneReviewThunk(spotId))
@@ -55,21 +63,30 @@ if (editedReview) {
 
   return (
     <form className="edit-review-form" onSubmit={handleSubmit}>
+            <ul>
+        {errors &&
+          errors.map((error) => {
+            return (
+              <li className="errors" key={error}>
+                {error}
+              </li>
+            );
+          })}
+      </ul>
       <div className="edit-review-inner-container">
         <ul id="review-list">
         <li>
-            <label>
-              {" "}
-              Edit Rating:
-              <input
-                id="input-rating"
-                type="text"
-                value={rating}
-                // maxLength={60}
-                // required
-                onChange={editedRating}
-              />
-            </label>
+        <label>
+          {" "}
+          Select Rating
+          <select onChange={editedRating}>
+            <option value={1}>1 Star</option>
+            <option value={2}>2 Star</option>
+            <option value={3}>3 Star</option>
+            <option value={4}>4 Star</option>
+            <option value={5}>5 Star</option>
+          </select>
+        </label>
           </li>
           <li>
             <label>
@@ -79,8 +96,9 @@ if (editedReview) {
                 id="input-name"
                 type="text"
                 value={body}
-                // maxLength={60}
-                // required
+                maxLength={200}
+                minLength={20}
+                required
                 onChange={editedBody}
               />
             </label>
