@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editReviewThunk, getOneReviewThunk } from '../../../store/review';
 import { useHistory } from "react-router-dom";
+import "../Modals.css"
 
 function EditReviewForm({ review, spotId, oneSpot, setShowModal }) {
 
@@ -62,7 +63,7 @@ if (editedReview) {
 
 
   return (
-    <form className="edit-review-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
             <ul>
         {errors &&
           errors.map((error) => {
@@ -105,7 +106,7 @@ if (editedReview) {
           </li>
      
 
-          <button className="edit-spot-button" type="submit">
+          <button id="submit" type="submit">
             Submit Edit
           </button>
         </ul>

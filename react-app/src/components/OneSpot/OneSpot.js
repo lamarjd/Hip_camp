@@ -145,21 +145,23 @@ function OneSpot() {
             <p key={review?.rating}>Rating: {review?.rating} / 5</p>
 
             {review?.user_id === sessionUser?.id &&
+            <>
             <EditReviewFormModal
               review={review}
               oneSpot={oneSpot}
               spotId={spotId}
-            />
-}
+              />
 
             <button id="delete-review" onClick={() => dispatch(deleteReviewThunk(review.id))}>
               Delete
             </button>
+              </>
+            }
           </span>
         ))}
       </div>
 
-    {!oneSpot.user_id && 
+    {oneSpot?.user_id !== sessionUser?.id && 
       <CreateReviewFormModal oneSpot={oneSpot} spotId={spotId} />
     }
     </div>

@@ -158,6 +158,16 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
         <li>
             <label>
               {" "}
+              Edit Spot Type
+              <select onChange={editedType}>
+                <option value="Campsite">Campsite</option>
+                <option value="Lodging">Lodging</option>
+              </select>
+            </label>
+          </li>
+        <li>
+            <label>
+              {" "}
               Edit Image:
               <input
                 id="input-image"
@@ -184,16 +194,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
               />
             </label>
           </li>
-          <li>
-            <label>
-              {" "}
-              Edit Spot Type
-              <select onChange={editedType}>
-                <option value="Campsite">Campsite</option>
-                <option value="Lodging">Lodging</option>
-              </select>
-            </label>
-          </li>
+
           <li>
             <label>
               {" "}
@@ -201,6 +202,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
               <input
                 id="input-city"
                 type="text"
+                placeholder="City (optional)"
                 value={city}
                 maxLength={60}
                 minLength={5}
@@ -268,7 +270,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
             </label>
           </li>
 
-          <button className="edit-spot-button" type="submit">
+          <button id="submit" type="submit">
             Submit Edit
           </button>
         </ul>

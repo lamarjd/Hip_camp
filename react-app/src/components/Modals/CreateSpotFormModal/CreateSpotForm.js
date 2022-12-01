@@ -141,6 +141,18 @@ function CreateSpotForm({ showModal, setShowModal }) {
           })}
       </ul>
         <ul id="lists">
+
+        <li>
+            <label>
+              {" "}
+              Spot Type
+              <select onChange={updateType}>
+                <option value="Campsite">Campsite</option>
+                <option value="Lodging">Lodging</option>
+              </select>
+            </label>
+          </li>
+
           <li>
             <label>
               <input
@@ -170,16 +182,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
             </label>
           </li>
 
-          <li>
-            <label>
-              {" "}
-              Spot Type
-              <select onChange={updateType}>
-                <option value="Campsite">Campsite</option>
-                <option value="Lodging">Lodging</option>
-              </select>
-            </label>
-          </li>
+ 
 
           {/* <li>
             <label>
@@ -267,7 +270,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
             </label>
           </li>
 
-          <button type="submit">Submit</button>
+          <button id="submit" type="submit">Submit</button>
         </ul>
       </form>
     </div>
