@@ -52,6 +52,8 @@ const SignUpForm = () => {
     setLastName(e.target.value)
   }
 
+  console.log("User from signup", user)
+
   if (user) {
     return <Redirect to='/' />;
   }
