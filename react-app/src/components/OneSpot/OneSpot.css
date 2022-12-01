@@ -1,22 +1,61 @@
-.review-container {
-    border: 2px solid yellow;
-    margin-top: 15%;
+.spot-container {
+    /* border: 2px solid yellow; */
+    background-color: white;
+    margin-top: 4%;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* width: 68%; */
 }
 
+.spot-detail-div {
+    border: 2px solid red;
+    width: 68%;
+    margin-left: 0;
+}
+
+.spot-details {
+    /* border: 2px solid blue; */
+    display: inline-flex;
+    width: 100%;
+    height: 25px;
+    margin-top: 0;
+    /* padding-bottom: 24px;
+    padding-top: 24px; */
+    /* align-content: start; */
+    /* justify-items: start; */
+    align-items: center;
+    gap: 5px;
+}
+
+.spot-details > p {
+    font-weight: normal;
+    font-size: small;
+    text-decoration: underline;
+}
+
+.spot-name {
+
+}
+
+.total-spot-reviews {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
 
 .img-container {
-    border: 2px solid blue;
-    height: 200px;
-    width: 200px;
+    /* border: 2px solid blue; */
+    height: 300px;
+    width: 400px;
     object-fit: cover;
 }
 
 #spot-img {
     /* object-fit: cover; */
+    border-radius: 12px;
     height: 100%;
     width: 100%;
 }
