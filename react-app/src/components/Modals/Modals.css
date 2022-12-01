@@ -1,0 +1,8 @@
+.form {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    /* margin-top: 15%; */
+}
+

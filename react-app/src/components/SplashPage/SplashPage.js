@@ -36,12 +36,17 @@ export default function SplashPage() {
     return srcVals[Math.floor(Math.random() * srcVals.length)];
   }
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
+  const timeout = (cb) => {
+
+    setTimeout(() => {
       getRandom();
     }, 300);
 
     return () => clearTimeout(timeout);
+  }
+
+  useEffect(() => {
+
   }, []);
 
   // console.log("Random src", getRandom(imgSources))
@@ -66,7 +71,7 @@ export default function SplashPage() {
         <NavLink to="/spots" exact={true}>
           Explore All Spots
         </NavLink>
-        <input placeholder="Search"></input>
+        {/* <input placeholder="Search"></input> */}
         <br />
 
       </div>
