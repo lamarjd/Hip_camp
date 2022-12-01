@@ -19,13 +19,14 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
   const [rating, setRating] = useState(1);
   const [errors, setErrors] = useState([]);
   
-  let validationErrors = [];
+  // let validationErrors = [];
 
   useEffect(() => {
     dispatch(fetchOneSpot(id));    
   }, [dispatch, body, rating]);
   
-  useEffect(()=>{ const errors = []
+  useEffect(() => { 
+    const errors = []
      if(body.length < 20) {
       errors.push("Review body must be longer than 20 characters") 
     }

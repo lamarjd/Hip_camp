@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
 import "../../../context/Modal.css"
 
 function CreateSpotForm({ showModal, setShowModal }) {
+
+  // onError={e => {e.target.src=`${defaultPic}`}}
+
   const dispatch = useDispatch();
   const history = useHistory();
   const [imageUrl, setImageUrl] = useState("");
@@ -16,8 +19,46 @@ function CreateSpotForm({ showModal, setShowModal }) {
   const [country, setCountry] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState([]);
 
-  // const [showForm, setShowForm] = useState(false);
+  useEffect(() => {
+    const errors = [];
+    if (!imageUrl) {
+      errors.push("Spot must include an image")
+    }
+
+    if (!imageUrl.includes(".jpg" || ".png")) {
+      errors.push(
+        "Spot Image must be in the proper format (.jpg or .png)"
+      );
+    }
+
+    if (!name) {
+      errors.push("Spot must have a name")
+    }
+
+    if (!state) {
+      errors.push("Spot must have a State")
+    }
+    
+    if (!country) {
+      errors.push("Spot must have a Country")
+    }
+    
+    if (!price) {
+      errors.push("Spot must have a Price")
+    }
+    
+    if (!description) {
+      errors.push("Spot must have a Description")
+    }
+    
+    if (description.length < 20 || description.length > 2000) {
+      errors.push("Description must be between 20 and 2000 characters")
+    }
+
+    setErrors(errors)
+  }, [imageUrl, name, state, country, price, description])
 
   let updateImageUrl = (e) => {
     setImageUrl(e.target.value);
@@ -89,6 +130,16 @@ function CreateSpotForm({ showModal, setShowModal }) {
   return (
     <div className="create-spot-container">
       <form className="spot-form" onSubmit={handleSubmit}>
+      <ul>
+        {errors &&
+          errors.map((error) => {
+            return (
+              <li className="errors" key={error}>
+                {error}
+              </li>
+            );
+          })}
+      </ul>
         <ul id="lists">
           <li>
             <label>
@@ -205,6 +256,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 placeholder="Add a Description for your spot"
                 type="text"
                 maxLength={2000}
+                minLength={20}
                 value={description}
                 required
                 onChange={updateDescription}
