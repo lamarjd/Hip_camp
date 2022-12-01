@@ -10,6 +10,7 @@ import AllSpots from './components/Spots/AllSpots';
 import OneSpot from './components/OneSpot/OneSpot.js';
 import SplashPage from "./components/SplashPage/SplashPage"
 import { authenticate } from './store/session';
+import NotFound from './components/NotFound/NotFound';
 import Test from './components/Test/test';
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
         </Route>
         <Route exact path="/spots">
           <AllSpots />
+        </Route>
+        <Route exact path="/not-found">
+          <NotFound />
         </Route>
 
 

@@ -70,9 +70,10 @@ export const fetchOneSpot = id => async dispatch => {
         dispatch(oneSpot(singleSpot))
 
         return singleSpot
-    } else { // any bad requests and errors
-        throw new Error("Not this time")
-    }
+    } 
+    // else { // any bad requests and errors
+    //     throw new Error("Not this time")
+    // }
 }
 
 // create a spot thunk
