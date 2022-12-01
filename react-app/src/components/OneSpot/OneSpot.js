@@ -22,6 +22,8 @@ function OneSpot() {
   const { spotId } = useParams();
   // console.log("Spot Id", spotId);
 
+  const sessionUser = useSelector((state) => state.session.user)
+
   // const spot = useSelector((state) => {
   //   return state.spots[spotId];
   // });
@@ -114,7 +116,11 @@ function OneSpot() {
       <br />
       <h3>UserID:</h3>
       {oneSpot?.user_id}
+
+
+      {oneSpot?.user_id === sessionUser?.id &&
       <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
+      }
 
       {/* <EditSpotForm spot={spot} 
       spotId={spotId}/> */}
@@ -130,28 +136,29 @@ function OneSpot() {
       <div className="reviews">
         {filteredReviews?.map((review) => (
           <span>
-            {console.log("review within the map", review)}
-
+            {/* {console.log("review within the map", review)} */}
             <p key={review.body}>Body: {review.body}</p>
 
             <p key={review.rating}>Rating: {review.rating} / 5</p>
 
-            {/* <button onClick={() => dispatch(editReviewThunk(review, review.id))}>Edit</button> */}
-
+            {review?.user_id === sessionUser?.id &&
             <EditReviewFormModal
               review={review}
               oneSpot={oneSpot}
               spotId={spotId}
             />
+}
 
-            <button onClick={() => dispatch(deleteReviewThunk(review.id))}>
+            <button id="delete-review" onClick={() => dispatch(deleteReviewThunk(review.id))}>
               Delete
             </button>
           </span>
         ))}
       </div>
 
+    {!oneSpot.user_id && 
       <CreateReviewFormModal oneSpot={oneSpot} spotId={spotId} />
+    }
     </div>
   );
 }

@@ -13,8 +13,19 @@
     /* font-family: 'Play', sans-serif; */
 
     font-family: 'M PLUS Rounded 1c', sans-serif;
+
+    /* font-family: Calibre, Helvetica, Arial, sans-serif; */
 }
 
 body {
     background-color: rgb(243, 242, 239);
 }
+
+a {
+    text-decoration: none;
+    color: #0f3806;
+}
+
+/* a:hover {
+    color: rgb(93, 182, 4);
+} */

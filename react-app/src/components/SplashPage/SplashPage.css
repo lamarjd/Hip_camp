@@ -52,7 +52,7 @@
 
 .search > a {
     color: #0f3806;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     border-radius: 50px;
     box-shadow: rgb(0 0 0 / 8%) 0px 12px 4px 0px;
     width: 50%;
@@ -60,7 +60,8 @@
     justify-content: center;
     align-items: center;
     height: 50%;
-    background-color: rgb(0, 197, 133)
+    background-color: rgb(0, 197, 133);
+    border: 1px solid transparent;
 }
 
 .search > a:hover {

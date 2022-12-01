@@ -27,12 +27,6 @@ export default function SplashPage() {
 
   function getRandom() {
     let srcVals = Object.values(imgSources);
-    // console.log(sourcesValues)
-    // let sourcesKeys = Object.keys(imgSources);
-    // console.log(sourcesKeys)
-
-    // return sourcesValues[Math.floor(Math.random() * sourcesValues.length)]
-
     return srcVals[Math.floor(Math.random() * srcVals.length)];
   }
 

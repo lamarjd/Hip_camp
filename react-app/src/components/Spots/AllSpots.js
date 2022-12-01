@@ -19,6 +19,12 @@ function AllSpots() {
     dispatch(fetchSpots());
   }, [dispatch]);
 
+  let filteredSpots = spots.filter((spot) => {
+    return spot.type === "Campsite"
+  })
+
+console.log("Filtered spots", filteredSpots)
+
   return (
     <div className="all-spots-container">
       {/* <CreateSpotForm />       */}
@@ -48,7 +54,7 @@ function AllSpots() {
             <div className="delete-spot">
 
 
-            {sessionUser.id === spot.user_id && 
+            {sessionUser?.id === spot.user_id && 
             <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
               Delete
             </button>

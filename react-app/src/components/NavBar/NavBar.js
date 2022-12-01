@@ -28,12 +28,12 @@ const NavBar = () => {
 
   return (
 
-    <nav>
+    <nav className="nav">
       <div className="navbar">
 
       <ul className="nav-list-items">
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink className="logo" to='/' exact={true} activeClassName='active'>
             HI-C
             <i className="fa-solid fa-campground"></i>
             MP
@@ -46,32 +46,21 @@ const NavBar = () => {
         </li>
         {!sessionUser && 
         <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+          <NavLink className="signup" to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
         </li>
         }
-        {/* <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li> */}
+        {sessionUser && 
         <li id="logout">
           <LogoutButton />
         </li>
+        }
       </ul>
 
       <div>
       
       </div>
-
-     {/* <NavLink to='/spots' exact={true}>
-     See All Spots
-     </NavLink> */}
-
-     {/* {sessionUser &&
-    <CreateSpotFormModal />
-     } */}
     </div>
     </nav>
   );
