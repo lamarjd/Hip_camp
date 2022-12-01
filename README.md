@@ -1,4 +1,4 @@
-# Getting Started with Flask React Project - NUCLEAR RECALL
+# Getting Started with Flask React Project - HI-CAMP
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
