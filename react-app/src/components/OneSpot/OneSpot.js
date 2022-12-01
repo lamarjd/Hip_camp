@@ -49,11 +49,14 @@ function OneSpot() {
     dispatch(getAllReviews());
   }, [dispatch]);
 
-  // const getRating = filteredReviews.map(review => {
-  //   return review.length
-  // })
+// let getRating = (filteredReviews) => {
+//   let sum = 0;
+//   for (let i = 0; i < filteredReviews.length -1; i++) {
+//     return filteredReviews[i]
+//   }
+// }
 
-  // console.log("spot rating", getRating)
+//   console.log("spot rating", getRating)
 
   return (
     <div className="spot-container">
@@ -137,9 +140,9 @@ function OneSpot() {
         {filteredReviews?.map((review) => (
           <span>
             {/* {console.log("review within the map", review)} */}
-            <p key={review.body}>Body: {review.body}</p>
+            <p key={review?.body}>Body: {review?.body}</p>
 
-            <p key={review.rating}>Rating: {review.rating} / 5</p>
+            <p key={review?.rating}>Rating: {review?.rating} / 5</p>
 
             {review?.user_id === sessionUser?.id &&
             <EditReviewFormModal
