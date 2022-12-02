@@ -23,7 +23,21 @@ function AllSpots() {
     return spot.type === "Campsite"
   })
 
-console.log("Filtered spots", filteredSpots)
+// console.log("Filtered spots", filteredSpots)
+
+// const [isHovering, setIsHovering] = useState(false)
+
+// const handleMouseOver = () => {
+//   setIsHovering(true)
+// }
+
+// const handleMouseOut = () => {
+//   setIsHovering(false)
+// }
+
+// const changeBackground = (e) => {
+//   e.target.style.background = 'red';
+// }
 
   return (
     <div className="all-spots-container">
@@ -40,8 +54,12 @@ console.log("Filtered spots", filteredSpots)
           <div key={spot.id}className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
 
-              <div className="all-spot-img">
-                <img id="spot-pic" alt="spot-pic" src={spot?.imageUrl} 
+              <div 
+              className="all-spot-img">
+                <img 
+                // onMouseOver={handleMouseOver}
+                // onMouseOut={handleMouseOut}
+                id="spot-pic" alt="spot-pic" src={spot?.imageUrl} 
                 onError={e => {e.target.src=`${defaultPic}`}}
                 />
 
@@ -55,6 +73,7 @@ console.log("Filtered spots", filteredSpots)
 
 
             {sessionUser?.id === spot.user_id && 
+            // isHovering &&
             <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
               Delete
             </button>
