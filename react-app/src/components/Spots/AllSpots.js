@@ -49,6 +49,7 @@ function AllSpots() {
           </span>
         </div>
       <div className="spot-list">
+          {sessionUser && <CreateSpotFormModal />}
 
         {spots?.map((spot) => (
           <div key={spot.id}className="single-spots-container">
@@ -82,7 +83,7 @@ function AllSpots() {
           </div>
         ))}
 
-        {sessionUser && <CreateSpotFormModal />}
+        
       </div>
     </div>
   );

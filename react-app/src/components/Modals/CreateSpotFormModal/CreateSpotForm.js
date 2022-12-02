@@ -24,14 +24,14 @@ function CreateSpotForm({ showModal, setShowModal }) {
   useEffect(() => {
     const errors = [];
     if (!imageUrl) {
-      errors.push("Spot must include an image")
+      errors.push("Spot must include an image (.jpg or .png format)")
     }
 
-    if (!imageUrl.includes(".jpg" || ".png")) {
-      errors.push(
-        "Spot Image must be in the proper format (.jpg or .png)"
-      );
-    }
+    // if (!imageUrl.includes(".jpg" || ".png")) {
+    //   errors.push(
+    //     "Spot Image must be in the proper format (.jpg or .png)"
+    //   )
+    // }
 
     if (!name) {
       errors.push("Spot must have a name")

@@ -12,6 +12,7 @@ import SplashPage from "./components/SplashPage/SplashPage"
 import { authenticate } from './store/session';
 import NotFound from './components/NotFound/NotFound';
 import Test from './components/Test/test';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <NavBar />
       <Switch>
         {/* <Route>
@@ -53,16 +55,17 @@ function App() {
         <Route exact path="/spots">
           <AllSpots />
         </Route>
-        <Route exact path="/not-found">
-          <NotFound />
-        </Route>
+        {/* <Route exact path="/not-found"> */}
+        {/* </Route> */}
 
 
         <Route path='/' exact={true} >
           {/* <h1>My Home Page</h1> */}
           <SplashPage />
         </Route>
+        <NotFound />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
