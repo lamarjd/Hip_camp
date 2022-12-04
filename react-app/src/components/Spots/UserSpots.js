@@ -14,7 +14,7 @@ function UserSpots() {
  const spots = useSelector((state) => Object.values(state.spots));
  console.log("SPOTS", spots);
 
- const filteredSpots = spots.filter(spot => {
+ const oneSpot = spots.filter(spot => {
     return spot.user_id === sessionUser.id
  })
  console.log("User spots", filteredSpots)
@@ -33,7 +33,7 @@ function UserSpots() {
 
         ))} */}
 
-        {filteredSpots?.map((spot) => (
+        {oneSpot?.map((spot) => (
       
             <div key={spot.id} className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
