@@ -64,7 +64,7 @@ if (editedReview) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-            <ul>
+            {/* <ul>
         {errors &&
           errors.map((error) => {
             return (
@@ -73,7 +73,7 @@ if (editedReview) {
               </li>
             );
           })}
-      </ul>
+      </ul> */}
       <div className="edit-review-inner-container">
         <ul id="review-list">
         <li>
@@ -102,6 +102,7 @@ if (editedReview) {
                 required
                 onChange={editedBody}
               />
+              {body.length} / 200
             </label>
           </li>
      

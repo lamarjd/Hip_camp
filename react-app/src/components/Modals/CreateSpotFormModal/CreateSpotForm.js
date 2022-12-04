@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
-import "../../../context/Modal.css"
+import "../../../context/Modal.css";
 
 function CreateSpotForm({ showModal, setShowModal }) {
-
   // onError={e => {e.target.src=`${defaultPic}`}}
 
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
   useEffect(() => {
     const errors = [];
     if (!imageUrl) {
-      errors.push("Spot must include an image (.jpg or .png format)")
+      errors.push("Spot must include an image (.jpg or .png format)");
     }
 
     // if (!imageUrl.includes(".jpg" || ".png")) {
@@ -33,32 +32,32 @@ function CreateSpotForm({ showModal, setShowModal }) {
     //   )
     // }
 
-    if (!name) {
-      errors.push("Spot must have a name")
-    }
+    // if (!name) {
+    //   errors.push("Spot must have a name");
+    // }
 
-    if (!state) {
-      errors.push("Spot must have a State")
-    }
-    
-    if (!country) {
-      errors.push("Spot must have a Country")
-    }
-    
-    if (!price) {
-      errors.push("Spot must have a Price")
-    }
-    
-    if (!description) {
-      errors.push("Spot must have a Description")
-    }
-    
-    if (description.length < 20 || description.length > 2000) {
-      errors.push("Description must be between 20 and 2000 characters")
-    }
+    // if (!state) {
+    //   errors.push("Spot must have a State");
+    // }
 
-    setErrors(errors)
-  }, [imageUrl, name, state, country, price, description])
+    // if (!country) {
+    //   errors.push("Spot must have a Country");
+    // }
+
+    // if (!price) {
+    //   errors.push("Spot must have a Price");
+    // }
+
+    // if (!description) {
+    //   errors.push("Spot must have a Description");
+    // }
+
+    // if (description.length < 20 || description.length > 2000) {
+    //   errors.push("Description must be between 20 and 2000 characters");
+    // }
+
+    setErrors(errors);
+  }, [imageUrl, name, state, country, price, description]);
 
   let updateImageUrl = (e) => {
     setImageUrl(e.target.value);
@@ -71,10 +70,6 @@ function CreateSpotForm({ showModal, setShowModal }) {
   let updateType = (e) => {
     setType(e.target.value);
   };
-
-  // let updateAddress = (e) => {
-  //   setAddress(e.target.value);
-  // };
 
   let updateCity = (e) => {
     setCity(e.target.value);
@@ -103,7 +98,6 @@ function CreateSpotForm({ showModal, setShowModal }) {
       name,
       imageUrl,
       type,
-      // address,
       city,
       state,
       country,
@@ -116,36 +110,34 @@ function CreateSpotForm({ showModal, setShowModal }) {
       setImageUrl("");
       setName("");
       setType("Campsite");
-      // setAddress("");
       setCity("");
       setState("");
       setCountry("");
       setPrice(0);
       setDescription("");
-      setShowModal(false)
-      history.push(`/spots`)
+      setShowModal(false);
+      history.push(`/spots`);
     }
   };
 
   return (
     <div className="create-spot-container">
       <form className="spot-form" onSubmit={handleSubmit}>
-      <ul>
-        {errors &&
-          errors.map((error) => {
-            return (
-              <li className="errors" key={error}>
-                {error}
-              </li>
-            );
-          })}
-      </ul>
+        <ul>
+          {errors &&
+            errors.map((error) => {
+              return (
+                <li className="errors" key={error}>
+                  {error}
+                </li>
+              );
+            })}
+        </ul>
         <ul id="lists">
-
-        <li>
+          <li>
             <label>
               {" "}
-              Spot Type
+              Spot Type:
               <select onChange={updateType}>
                 <option value="Campsite">Campsite</option>
                 <option value="Lodging">Lodging</option>
@@ -155,9 +147,11 @@ function CreateSpotForm({ showModal, setShowModal }) {
 
           <li>
             <label>
+              {" "}
+              Upload Image:
               <input
                 className="spot-form-image-field"
-                placeholder="Spot Image"
+                placeholder="Spot Image URL (.jpg or .png format)"
                 type="text"
                 maxLength={250}
                 value={imageUrl}
@@ -169,6 +163,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
 
           <li>
             <label>
+              Spot Name:
               <input
                 className="spot-form-name-field"
                 placeholder="Spot Name"
@@ -182,24 +177,8 @@ function CreateSpotForm({ showModal, setShowModal }) {
             </label>
           </li>
 
- 
-
-          {/* <li>
-            <label>
-              <input
-                className="spot-form-address-field"
-                placeholder="Spot address"
-                type="text"
-                maxLength={60}
-                value={address}
-                required
-                onChange={updateAddress}
-              />
-            </label>
-          </li> */}
-
           <li>
-            <label>
+            <label> Spot City: 
               <input
                 className="spot-form-city-field"
                 placeholder="Spot City"
@@ -214,7 +193,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
           </li>
 
           <li>
-            <label>
+            <label> Spot State: 
               <input
                 className="spot-form-state-field"
                 placeholder="Spot State"
@@ -228,7 +207,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
           </li>
 
           <li>
-            <label>
+            <label> Spot Country: 
               <input
                 className="spot-form-country-field"
                 placeholder="Spot Country"
@@ -243,7 +222,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
           </li>
 
           <li>
-            <label>
+            <label> Spot Price: 
               <input
                 className="spot-form-price-field"
                 placeholder="Spot price"
@@ -256,7 +235,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
           </li>
 
           <li>
-            <label>
+            <label> Spot Description: 
               <input
                 className="spot-form-description-field"
                 placeholder="Add a Description for your spot"
@@ -270,7 +249,9 @@ function CreateSpotForm({ showModal, setShowModal }) {
             </label>
           </li>
 
-          <button id="submit" type="submit">Submit</button>
+          <button id="submit" type="submit">
+            Submit
+          </button>
         </ul>
       </form>
     </div>

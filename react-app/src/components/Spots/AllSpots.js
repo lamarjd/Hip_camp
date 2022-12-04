@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
 import { fetchSpots, editSpotThunk, deleteSpotThunk } from "../../store/spot";
-import defaultPic from "../../assets/wake-up.png"
+import defaultPic from "../../assets/wake-up.png";
 import "./Spots.css";
-
 
 function AllSpots() {
   const dispatch = useDispatch();
@@ -20,70 +19,66 @@ function AllSpots() {
   }, [dispatch]);
 
   let filteredSpots = spots.filter((spot) => {
-    return spot.type === "Campsite"
-  })
+    return spot.type === "Campsite";
+  });
 
-// console.log("Filtered spots", filteredSpots)
+  // console.log("Filtered spots", filteredSpots)
 
-// const [isHovering, setIsHovering] = useState(false)
+  // const [isHovering, setIsHovering] = useState(false)
 
-// const handleMouseOver = () => {
-//   setIsHovering(true)
-// }
+  // const handleMouseOver = () => {
+  //   setIsHovering(true)
+  // }
 
-// const handleMouseOut = () => {
-//   setIsHovering(false)
-// }
+  // const handleMouseOut = () => {
+  //   setIsHovering(false)
+  // }
 
-// const changeBackground = (e) => {
-//   e.target.style.background = 'red';
-// }
+  // const changeBackground = (e) => {
+  //   e.target.style.background = 'red';
+  // }
 
   return (
     <div className="all-spots-container">
       {/* <CreateSpotForm />       */}
-        <div className="options-container">
-          <span className="single-option">
+      <div className="options-container">
+        <span className="single-option">
           <h3>Campsites</h3>
           <h3>Lodging</h3>
-          </span>
-        </div>
+        </span>
+      </div>
       <div className="spot-list">
-          {sessionUser && <CreateSpotFormModal />}
+        {sessionUser && <CreateSpotFormModal />}
 
         {spots?.map((spot) => (
-          <div key={spot.id}className="single-spots-container">
+          <div key={spot.id} className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
-
-              <div 
-              className="all-spot-img">
-                <img 
-                // onMouseOver={handleMouseOver}
-                // onMouseOut={handleMouseOut}
-                id="spot-pic" alt="spot-pic" src={spot?.imageUrl} 
-                onError={e => {e.target.src=`${defaultPic}`}}
+              <div className="all-spot-img">
+                <img
+                  // onMouseOver={handleMouseOver}
+                  // onMouseOut={handleMouseOut}
+                  id="spot-pic"
+                  alt="spot-pic"
+                  src={spot?.imageUrl}
+                  onError={(e) => {
+                    e.target.src = `${defaultPic}`;
+                  }}
                 />
 
-              <h1>{spot?.name}</h1>
+                <h1>{spot?.name}</h1>
               </div>
-
             </NavLink>
-            <br/>
+            <br />
 
-            <div className="delete-spot">
-
-
-            {sessionUser?.id === spot.user_id && 
-            // isHovering &&
-            <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
-              Delete
-            </button>
-             }
-            </div>
+            {/* <div className="delete-spot">
+              {sessionUser?.id === spot.user_id && (
+                <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
+                  Delete
+                </button>
+              )}
+            </div> */}
           </div>
         ))}
-
-        
       </div>
     </div>
   );

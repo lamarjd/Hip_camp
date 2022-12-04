@@ -50,10 +50,6 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
     setType(e.target.value);
   };
 
-  // let editedAddress = (e) => {
-  //   setAddress(e.target.value);
-  // };
-  
   let editedCity = (e) => {
     setCity(e.target.value);
   };
@@ -81,7 +77,6 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
       name,
       imageUrl,
       type,
-      // address,
       city,
       state,
       country,
