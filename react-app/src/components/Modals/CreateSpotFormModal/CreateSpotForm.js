@@ -20,11 +20,11 @@ function CreateSpotForm({ showModal, setShowModal }) {
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
-    const errors = [];
-    if (!imageUrl) {
-      errors.push("Spot must include an image (.jpg or .png format)");
-    }
+  // useEffect(() => {
+  //   const errors = [];
+    // if (!imageUrl) {
+    //   errors.push("Spot must include an image (.jpg or .png format)");
+    // }
 
     // if (!imageUrl.includes(".jpg" || ".png")) {
     //   errors.push(
@@ -56,8 +56,8 @@ function CreateSpotForm({ showModal, setShowModal }) {
     //   errors.push("Description must be between 20 and 2000 characters");
     // }
 
-    setErrors(errors);
-  }, [imageUrl, name, state, country, price, description]);
+  //   setErrors(errors);
+  // }, [imageUrl, name, state, country, price, description]);
 
   let updateImageUrl = (e) => {
     setImageUrl(e.target.value);
@@ -123,7 +123,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
   return (
     <div className="create-spot-container">
       <form className="spot-form" onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors &&
             errors.map((error) => {
               return (
@@ -132,7 +132,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 </li>
               );
             })}
-        </ul>
+        </ul> */}
         <ul id="lists">
           <li>
             <label>

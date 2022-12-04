@@ -132,9 +132,9 @@ if (!oneSpot) {
       {oneSpot?.user_id}
 
 
-      {oneSpot?.user_id === sessionUser?.id &&
+      {/* {oneSpot?.user_id === sessionUser?.id &&
       <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
-      }
+      } */}
 
       {/* <EditSpotForm spot={spot} 
       spotId={spotId}/> */}

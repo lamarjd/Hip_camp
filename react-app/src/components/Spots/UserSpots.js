@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal"
-import { deleteSpotThunk } from '../../store/spot';
+import { fetchSpots, deleteSpotThunk } from '../../store/spot';
 import defaultPic from "../../assets/wake-up.png";
 import "./Spots.css"
+import EditSpotFormModal from '../Modals/EditSpotFormModal';
 
 function UserSpots() {
     const dispatch = useDispatch();
@@ -17,9 +18,11 @@ function UserSpots() {
  const oneSpot = spots.filter(spot => {
     return spot.user_id === sessionUser.id
  })
- console.log("User spots", filteredSpots)
+ console.log("User spots", oneSpot)
 
-
+ useEffect(() => {
+    dispatch(fetchSpots());
+  }, [dispatch]);
  
  return (
      <div>
@@ -56,10 +59,14 @@ function UserSpots() {
             
             <div className="delete-spot">
               {sessionUser?.id === spot.user_id && (
-                  // isHovering &&
+                <>
+
+                  <EditSpotFormModal oneSpot={spot} spotId={spot.id}/>
                   <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
                   Delete
                 </button>
+                </>
+               
               )}
             </div>
           </div>
