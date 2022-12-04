@@ -58,3 +58,22 @@
     background-color: #0f3806;
 } */
 
+.user_button > i {
+    font-size: 2em;
+}
+
+.profile-dropdown {
+    position: fixed;
+    display: flex;
+    right: 8%;
+    justify-items: center;
+    flex-direction: column;
+    align-self: flex-start;
+    background-color: white;
+    color: black;
+    margin-top: 3em;
+    margin-left: 0.6em; 
+    margin-bottom: 0px; 
+    border-radius: 10px;
+    box-shadow: 3px 3px #eb9533ce, -.3em 0 .2em #fd8700ef;
+}

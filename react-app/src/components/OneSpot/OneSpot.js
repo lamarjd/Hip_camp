@@ -49,14 +49,22 @@ function OneSpot() {
     dispatch(getAllReviews());
   }, [dispatch]);
 
-// let getRating = (filteredReviews) => {
-//   let sum = 0;
-//   for (let i = 0; i < filteredReviews.length -1; i++) {
-//     return filteredReviews[i]
-//   }
-// }
+  // const reviews = filteredReviews.map(review => {
+  //   let sum = 0;
+  //   sum += review.rating
+  //   console.log("Sum", sum)
+  //   return sum
+  // })
 
-//   console.log("spot rating", getRating)
+  const reviews = filteredReviews.map(review => {
+    return review.rating
+  })
+
+console.log("reviews", reviews.reduce((accum, num) => {
+  return accum + num;
+}, 0))
+
+
 if (!oneSpot) {
   return <Redirect to='/not-found' />;
 }
@@ -68,8 +76,8 @@ if (!oneSpot) {
       <div className="spot-detail-div">
         <div className="spot-details">
           <p>
-            {oneSpot?.country} {" > "}{" "}
-          </p>
+            {oneSpot?.country} {" "}
+          </p> <h6>{" > "}</h6>
           {oneSpot?.city ? (
             <p>
               {oneSpot?.city}
@@ -86,8 +94,8 @@ if (!oneSpot) {
 
             <div className="total-spot-reviews">
             <i className="fa-solid fa-thumbs-up"></i>
-              <p>{(filteredReviews.length / 100).toFixed(2)}%</p>
-            <p>{filteredReviews.length} reviews</p>
+              <p>{(reviews.reduce((accum, num) => { return (accum + num) / 5;}, 0) / reviews.length).toFixed(2) * 100}%</p>
+            <p>({filteredReviews.length}) reviews</p>
             </div>
 
           </div>
@@ -124,9 +132,9 @@ if (!oneSpot) {
       {oneSpot?.user_id}
 
 
-      {oneSpot?.user_id === sessionUser?.id &&
+      {/* {oneSpot?.user_id === sessionUser?.id &&
       <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
-      }
+      } */}
 
       {/* <EditSpotForm spot={spot} 
       spotId={spotId}/> */}

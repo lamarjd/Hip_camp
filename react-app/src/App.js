@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import NotFound from './components/NotFound/NotFound';
 import Test from './components/Test/test';
 import Footer from './components/Footer/Footer';
+import UserSpots from './components/Spots/UserSpots';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +53,9 @@ function App() {
         <Route path='/spots/:spotId'>
           <OneSpot />
         </Route>
+        <ProtectedRoute exact path='/:userId/spots'>
+        <UserSpots />
+        </ProtectedRoute>
         <Route exact path="/spots">
           <AllSpots />
         </Route>

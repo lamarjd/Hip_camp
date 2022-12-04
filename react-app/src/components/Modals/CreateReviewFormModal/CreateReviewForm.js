@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { fetchOneSpot } from "../../../store/spot";
+import spotReducer, { fetchOneSpot } from "../../../store/spot";
 import { createReviewThunk } from "../../../store/review";
 import "../Modals.css";
 
@@ -39,16 +39,6 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-
-
-    // if (body.length < 20) {
-    //   validationErrors.push(
-    //     "Review body must be longer tahn 2o characters and less than 200 characters"
-    //   );
-    // }
-
-    // setErrors(validationErrors);
 
     const payload = {
       body,
@@ -70,7 +60,7 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="review-inputs">
-      <ul>
+      {/* <ul>
         {errors &&
           errors.map((error) => {
             return (
@@ -79,7 +69,20 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
               </li>
             );
           })}
-      </ul>
+      </ul> */}
+      <h2>Review for {oneSpot.name}</h2> <hr/>
+      <label>
+          {" "}
+          Select Rating
+          <select onChange={(e) => setRating(e.target.value)}>
+            <option value={1}>1 Star</option>
+            <option value={2}>2 Star</option>
+            <option value={3}>3 Star</option>
+            <option value={4}>4 Star</option>
+            <option value={5}>5 Star</option>
+          </select>
+        </label>
+        <br/>
         <label>
           {" "}
           Write Review
@@ -94,17 +97,7 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
           {body.length}/200
         </label>
 
-        <label>
-          {" "}
-          Select Rating
-          <select onChange={(e) => setRating(e.target.value)}>
-            <option value={1}>1 Star</option>
-            <option value={2}>2 Star</option>
-            <option value={3}>3 Star</option>
-            <option value={4}>4 Star</option>
-            <option value={5}>5 Star</option>
-          </select>
-        </label>
+
         
         <button type="submit">Add Review</button>
         

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
 import LogoutButton from "../auth/LogoutButton";
 import LoginFormModal from "../Modals/LoginFormModal";
+import ProfileButton from "./ProfileButton";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -51,7 +52,8 @@ const NavBar = () => {
           )}
           {sessionUser && (
             <li id="logout">
-              <LogoutButton />
+              {/* <LogoutButton /> */}
+              <ProfileButton sessionUser={sessionUser}/>
             </li>
           )}
         </ul>
