@@ -28,13 +28,6 @@ function UserSpots() {
      <div>
       User Spots
       <div className="spot-list">
-        {/* {filteredSpots.map((spot) => (
-            <>
-        <p>{spot.name}</p> 
-        <p>{spot.name}</p> 
-            </>
-
-        ))} */}
 
         {oneSpot?.map((spot) => (
       
@@ -62,6 +55,7 @@ function UserSpots() {
                 <>
 
                   <EditSpotFormModal oneSpot={spot} spotId={spot.id}/>
+
                   <button onClick={() => dispatch(deleteSpotThunk(spot.id))}>
                   Delete
                 </button>

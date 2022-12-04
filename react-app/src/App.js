@@ -53,7 +53,7 @@ function App() {
         <Route path='/spots/:spotId'>
           <OneSpot />
         </Route>
-        <ProtectedRoute path='/:userId/spots'>
+        <ProtectedRoute exact path='/:userId/spots'>
         <UserSpots />
         </ProtectedRoute>
         <Route exact path="/spots">
