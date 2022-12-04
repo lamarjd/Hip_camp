@@ -86,6 +86,8 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
+          maxLength={60}
+          minLength={5}
           required={true}
         ></input>
       </div>
@@ -98,6 +100,8 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          minLength={5}
+          maxLength={60}
           required={true}
         ></input>
       </div>
@@ -111,6 +115,8 @@ const SignUpForm = () => {
           name='firstName'
           onChange={updateFirstName}
           value={first_name}
+          minLength={3}
+          maxLength={60}
           required={true}
         ></input>
       </div>
@@ -124,6 +130,8 @@ const SignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={last_name}
+          minLength={3}
+          maxLength={60}
           required={true}
         ></input>
       </div>
@@ -137,6 +145,8 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          minLength={5}
+          maxLength={60}
           required={true}
         ></input>
       </div>

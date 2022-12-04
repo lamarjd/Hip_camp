@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, NavLink, Redirect } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
+import UserSpots from "../Spots/UserSpots";
 import "./NavBar.css";
 
 function ProfileButton({ sessionUser }) {
@@ -47,11 +48,15 @@ function ProfileButton({ sessionUser }) {
             
             {!showSpots &&               
          
+        //  <button onClick={() => history.push(`/${sessionUser?.id}/spots`)}            
+        //  >
+        //         My Spots
+        //     </button>
 
-                <NavLink onClick={() => setShowSpots(true)} to={`${sessionUser?.id}/spots`}            
-                >
-                My Spots
-            </NavLink>
+        <NavLink to={`/${sessionUser?.id}/spots`}           
+        >
+               My Spots
+           </NavLink>
             
         }
 

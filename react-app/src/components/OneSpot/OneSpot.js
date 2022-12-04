@@ -60,14 +60,10 @@ function OneSpot() {
     return review.rating
   })
 
-console.log("reviews", reviews.reduce((accum, num) => {
-  return accum + num;
-}, 0))
+// console.log("reviews", reviews.reduce((accum, num) => {
+//   return accum + num;
+// }, 0))
 
-
-if (!oneSpot) {
-  return <Redirect to='/not-found' />;
-}
 
   return (
     <div className="spot-container">
@@ -79,10 +75,13 @@ if (!oneSpot) {
             {oneSpot?.country} {" "}
           </p> <h6>{" > "}</h6>
           {oneSpot?.city ? (
+            <>
             <p>
               {oneSpot?.city}
-              {" > "}
-            </p>
+              
+            </p> 
+            <h6>{" > "}</h6>
+            </>
           ) : (
             <p>{""}</p>
             )}
@@ -93,9 +92,19 @@ if (!oneSpot) {
             <h2>{oneSpot?.name}</h2>
 
             <div className="total-spot-reviews">
+
+            {!reviews.length ? (
+              <p>No Reviews</p>
+            ) : (
+              <>
             <i className="fa-solid fa-thumbs-up"></i>
               <p>{(reviews.reduce((accum, num) => { return (accum + num) / 5;}, 0) / reviews.length).toFixed(2) * 100}%</p>
             <p>({filteredReviews.length}) reviews</p>
+              </>
+
+            )}
+
+
             </div>
 
           </div>

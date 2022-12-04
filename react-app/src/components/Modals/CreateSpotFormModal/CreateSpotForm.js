@@ -228,7 +228,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
                 placeholder="Spot price"
                 // maxLength={60}
                 value={price}
-                required
+                required pattern="[0-9]+"
                 onChange={updatePrice}
               />
             </label>

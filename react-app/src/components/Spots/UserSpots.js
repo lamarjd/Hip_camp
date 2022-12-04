@@ -29,7 +29,12 @@ function UserSpots() {
       User Spots
       <div className="spot-list">
 
-        {oneSpot?.map((spot) => (
+        {!oneSpot.length ? (
+            <>
+            <p>No Spots</p>
+            </>
+        )        
+        : (oneSpot?.map((spot) => (
       
             <div key={spot.id} className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
@@ -64,7 +69,7 @@ function UserSpots() {
               )}
             </div>
           </div>
-          ))}
+          )))}
       </div>
             
       
