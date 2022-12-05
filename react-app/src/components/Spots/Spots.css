@@ -1,23 +1,46 @@
 .all-spot-img{
     /* border: 2px solid blue; */
-    height: 200px;
-    width: 200px;
+    /* height: 200px; */
+    /* width: 200px; */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     word-wrap: break-word;
+}
+
+.all-spot-img {
+    /* border: 1px dotted red; */
+    /* width: 100%; */
+    object-fit: cover;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-left: 12%; */
+    /* margin-right: 50%; */
+}
+
+.all-spot-img > img{
+    border-radius: 8px;
 }
 
 .all-spots-container {
     /* border: 2px dotted blue; */
     margin-top: 5%;
+    /* margin-bottom: 1%; */
     min-height: 1180px;
+    height: 100%;
     word-wrap: break-word;
     /* margin-bottom: 20%; */
 }
 
 #spot-pic {
     /* object-fit: cover; */
-    height: 200px;
-    width: 300px;
+    height: 250px;
+    width: 350px;
 }
 
 .spot-list {
@@ -31,33 +54,34 @@
     /* display: flex; */
     /* flex: 2 1 0%; */
     min-width: 0px;
-    height: 100vh;
+    height: 1800px;
+
     /* width: 100%; */
     background-color: white;
-    /* margin-top: -10;     */
+    /* margin-bottom: 10px; */
+    /* margin-top: -10px;     */
     /* margin-bottom: 25%;     */
+    /* overflow-y: scroll; */
 }
 
 .user-spot-list {
-        /* border: 2px solid red; */
-        display: grid;
-        grid-template-columns: repeat(4,20%);
-        align-items: center;
-        justify-content: center; 
-        gap: 2%;
-        /* flex-direction: column; */
-        /* display: flex; */
-        /* flex: 2 1 0%; */
-        min-width: 0px;
-        height: 100vh;
-        /* width: 100%; */
-        background-color: white;
-        /* margin-top: -10;     */
-        /* margin-bottom: 25%;     */
-        word-wrap: break-word;
-        margin-top: 5%;
-        padding-top: 5%;
-        /* margin-bottom: 5%; */
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(4,20%);
+    align-items: center;
+    justify-content: center; 
+    gap: 2%;
+    /* flex-direction: column; */
+    /* display: flex; */
+    /* flex: 2 1 0%; */
+    min-width: 0px;
+    height: 100%;
+    /* width: 100%; */
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 60px;    
+    /* margin-bottom: 25%;     */
+    /* overflow-y: scroll; */
 }
 
 .single-spots-container {
@@ -66,12 +90,12 @@
     padding-right: 0px;
     /* margin-left: 16px;
     margin-right: 16px; */
-    margin-top: 50px;
+    margin-top: 2%;
     display: flex;
-    height: 70%;
+    height: 450px;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     
 }
@@ -81,6 +105,11 @@
     /* border: 2px solid blue; */
     max-width: 300px;
     margin-bottom: 55%;
+    font-size: 18px;
+    color: black;
+    /* border: 2px solid red; */
+    /* width: 300px;
+    margin-bottom: 0px; */
 }
 
 .options-container {
@@ -117,33 +146,54 @@
     border: 1px solid gray;
 } */
 
-.all-spot-img {
-    /* border: 1px dotted red; */
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 10px; */
-    /* margin-left: 12%; */
-    /* margin-right: 50%; */
+
+
+.info {
+    /* border: 1px solid blue; */
+    width: 85%;
 }
 
-.all-spot-img > img{
-    border-radius: 8px;
-}
-
-.all-spot-img > h1 {
-    font-size: large;
+#spot-name {
+    font-size: 18px;
     color: black;
+    /* border: 2px solid red; */
+    width: 300px;
+    margin-bottom: 0px;
+}
+
+#spot-rev {
+    /* border: 2px solid red; */
+    width: 80%;
+    font-size: 14px;
+    color: rgb(92, 91, 91);
+    font-weight: 1;
+}
+
+#money {
+    font-size: 14px;
+    color: rgb(92, 91, 91);
+    font-weight: 1;
+    word-wrap: none;
+ 
+}
+
+#spot-pricing {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 80%;
+    height: 15%;
+    /* border: 1px solid blue; */
+    word-wrap: none;
 }
 
 .delete-spot {
-    /* border: 2px solid red; */
-    width: 50%;
+    /* border: 1px solid red; */
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 5%;
+    justify-content: space-around;
+    margin-top: -45%;
+    margin-bottom: 15%;
 }
 
 .delete-spot > button {

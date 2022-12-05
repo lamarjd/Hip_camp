@@ -6,7 +6,7 @@ import spotReducer, { fetchOneSpot } from "../../../store/spot";
 import { createReviewThunk } from "../../../store/review";
 import "../Modals.css";
 
-function CreateReviewForm({ oneSpot, setShowModal }) {
+function CreateReviewForm({ filteredReviews, oneSpot, setShowModal }) {
   console.log("oneSpot from ReviewForm", oneSpot);
 
   const dispatch = useDispatch();
