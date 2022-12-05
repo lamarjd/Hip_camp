@@ -33,16 +33,16 @@ function OneSpot() {
   // console.log("review from spot", reviews);
 
   const rev = useSelector((state) => Object.values(state.reviews));
-  console.log("--------> Review selector", rev);
+  // console.log("--------> Review selector", rev);
 
   const filteredReviews = rev.filter((review) => review.spot_id === +spotId);
 
-  console.log("Filtered reviews", filteredReviews);
+  // console.log("Filtered reviews", filteredReviews);
 
   const spots = useSelector((state) => Object.values(state.spots));
 
   const oneSpot = spots.filter((spot) => spot.id === +spotId)[0];
-  console.log("One Spot", oneSpot);
+  // console.log("One Spot", oneSpot);
 
   useEffect(() => {
     dispatch(fetchOneSpot(spotId));
@@ -55,6 +55,8 @@ function OneSpot() {
   //   console.log("Sum", sum)
   //   return sum
   // })
+
+
 
   const reviews = filteredReviews.map(review => {
     return review.rating
@@ -69,6 +71,10 @@ const revPercent = reviews.reduce((accum, num) => {
   let avg = 100 - ((sum / 5) / reviews.length) 
   return Math.floor(avg)
   }, 0)
+
+  if (!oneSpot) {
+    return <Redirect to="/not-found" />;
+  }
 
 
   return (
