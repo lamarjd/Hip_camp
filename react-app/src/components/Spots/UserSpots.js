@@ -27,7 +27,7 @@ function UserSpots() {
  return (
      <div>
       User Spots
-      <div className="spot-list">
+      <div className="user-spot-list">
 
         {!oneSpot.length ? (
             <>
@@ -36,7 +36,7 @@ function UserSpots() {
         )        
         : (oneSpot?.map((spot) => (
       
-            <div key={spot.id} className="single-spots-container">
+            <div key={spot.id} className="user-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
             <div className="all-spot-img">
             <img
@@ -50,7 +50,7 @@ function UserSpots() {
             }}
             />
             
-            <h1>{spot?.name}</h1>
+            <h1 id="name">{spot?.name}</h1>
             </div>
             </NavLink>
             <br />

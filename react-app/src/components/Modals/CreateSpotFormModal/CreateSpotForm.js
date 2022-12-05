@@ -181,7 +181,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
             <label> Spot City: 
               <input
                 className="spot-form-city-field"
-                placeholder="Spot City"
+                placeholder="Spot City (optional)"
                 type="text"
                 maxLength={60}
                 minLength={5}
@@ -248,11 +248,14 @@ function CreateSpotForm({ showModal, setShowModal }) {
               />
             </label>
           </li>
+        </ul>
 
+          <div className="add-spot-buttons">
           <button id="submit" type="submit">
             Submit
           </button>
-        </ul>
+          <button id="submit" type="cancel" onClick={() => setShowModal(false)}>Cancel</button>
+          </div>
       </form>
     </div>
   );

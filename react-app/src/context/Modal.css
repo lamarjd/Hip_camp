@@ -46,6 +46,11 @@
     width: 50vw;
   }
 
+  .spot-form {
+    /* border: 2px solid green; */
+    
+  }
+
   .edit-spot-form {
     /* border: 2px dotted red; */
     display: flex;
@@ -61,13 +66,33 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     width: 100%;
   }
 
   #lists > li {
     list-style-type: none;
-    margin-bottom: 5px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    /* border: 2px solid blue; */
+    
+  }
+
+  .add-spot-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    width: 100%;
+    padding-bottom: 5%;
+    gap: 5%;
+  }
+
+  .edit-spot-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
   }
 
   label > input {
