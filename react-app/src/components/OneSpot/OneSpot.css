@@ -2,7 +2,8 @@
     /* border: 2px solid yellow; */
     background-color: white;
     margin-top: 4%;
-    margin-left: 0;
+    padding-left: 2%;
+    padding-right: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +14,7 @@
 .spot-detail-div {
     border: 1px solid gray;   
     width: 68%;
-    margin-left: 0;
+    margin-top: 0px;
 }
 
 .spot-details {
@@ -21,7 +22,8 @@
     display: inline-flex;
     width: 100%;
     height: 25px;
-    margin-top: 0;
+    margin-top: 1%;
+    margin-left: 2%;
     /* padding-bottom: 24px;
     padding-top: 24px; */
     /* align-content: start; */
@@ -30,14 +32,48 @@
     gap: 5px;
 }
 
+#thumb-up {
+    color: rgb(81, 179, 81);
+}
+
+.spot-specifics {
+    /* border: 2px solid red; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 20px; */
+    
+}
+
+.spot-specifics > h3 {
+    text-decoration: underline; 
+}
+
+#specifics {
+    margin-top:0px;
+    /* border: 2px solid blue; */
+    gap: 5%;
+    display: inline-flex;
+    width: 80%;
+    justify-content: center;
+    /* margin-top: 2%; */
+}
+
 .spot-details > p {
     font-weight: normal;
     font-size: small;
     text-decoration: underline;
 }
 
-.spot-name {
+#underline {
+    font-weight: normal;
+    font-size: small;
+    text-decoration: underline;
+}
 
+.spot-name {
+    margin-left: 2%;
 }
 
 .total-spot-reviews {
@@ -51,6 +87,7 @@
     height: 300px;
     width: 400px;
     object-fit: cover;
+    margin-top: 2%;
 }
 
 #spot-img {
@@ -71,15 +108,30 @@
 .reviews {
     /* border: 2px solid red; */
     width: 50%;
-
+    /* border: 1px solid rgba(128, 128, 128, 0.724); */
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-left: 5%;
+    margin-right: 5%;
     /* display: inline-flex; */
 
 }
 
-.reviews > span{
+#review-items{
     border: 1px solid rgba(128, 128, 128, 0.724);
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.review-action-buttons {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
 }
 
 #delete-review {
@@ -88,13 +140,19 @@
     height: 36px;
     font-size: 15px;
     font-weight: 500;
-    /* padding: 6px 16px 8px; */
     border-radius: 24px;
     cursor: pointer;
     transition: background 0.2s ease 0s;
     white-space: nowrap;
     border: 1px solid transparent;
     margin-top: 2px; 
+    margin-bottom: 2%; 
+}
+
+#review-labels {
+    margin-left: 5%;
+    margin-right: 5%;
+    /* text-decoration: underline; */
 }
 
 

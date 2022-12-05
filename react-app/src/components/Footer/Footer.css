@@ -1,23 +1,28 @@
 .about-me {
     border: 1px solid gray;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100px;
-    /* margin-top: 5px; */
+    padding-top: 5px;
+    gap: 15px;
 }
 
-.about-me > i:hover, p:hover {
- cursor: pointer;
- /* box-shadow: 2px 2px 2px grey; */
- font-size: 25px;
+#links {
+    font-size: 50px;
+    gap: 15px;
 }
 
-.about-me > p:hover {
+#links:hover {
  cursor: pointer;
  /* box-shadow: 2px 2px 2px grey; */
+ font-size: 55px;
+}
+
+/* .about-me > p:hover {
+ cursor: pointer;
  font-size: 25px;
 }
 
@@ -32,4 +37,4 @@
    .about-me > i:hover {
     border-radius: 50px;
     box-shadow: 2px 2px 2px grey;
-   }
+   } */

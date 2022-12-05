@@ -43,12 +43,12 @@ function AllSpots() {
       {/* <CreateSpotForm />       */}
       <div className="options-container">
         <span className="single-option">
-          <h3>Campsites</h3>
-          <h3>Lodging</h3>
+          {/* <h3>Campsites</h3>
+          <h3>Lodging</h3> */}
+        <h3>{sessionUser && <CreateSpotFormModal />}</h3>
         </span>
       </div>
       <div className="spot-list">
-        {sessionUser && <CreateSpotFormModal />}
 
         {spots?.map((spot) => (
           <div key={spot.id} className="single-spots-container">
