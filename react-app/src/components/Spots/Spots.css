@@ -11,6 +11,7 @@
     margin-top: 5%;
     min-height: 1180px;
     word-wrap: break-word;
+    /* margin-bottom: 20%; */
 }
 
 #spot-pic {
@@ -30,7 +31,7 @@
     /* display: flex; */
     /* flex: 2 1 0%; */
     min-width: 0px;
-    height: 1500px;
+    height: 100vh;
     /* width: 100%; */
     background-color: white;
     /* margin-top: -10;     */

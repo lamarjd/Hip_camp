@@ -49,7 +49,7 @@
     transition: background 0.2s ease 0s;
     white-space: nowrap;
     border: 1px solid transparent;
-    /* margin-top: 2px;  */
+    margin-bottom: 2%; 
 }
 
 .review-modal {
