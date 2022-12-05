@@ -125,25 +125,19 @@ function AllSpots() {
 
   return (
     <div className="all-spots-container">
-      {/* <CreateSpotForm />       */}
+  
       <div className="options-container">
         <span className="single-option">
-          {/* <h3>Campsites</h3>
-          <h3>Lodging</h3> */}
-        <h3>{sessionUser && 
-        
-        <CreateSpotFormModal />}</h3>
+
+          <h3>{sessionUser && <CreateSpotFormModal />}</h3>
         </span>
       </div>
       <div className="spot-list">
-
         {spots?.map((spot) => (
           <div key={spot.id} className="single-spots-container">
             <NavLink key={spot?.id} to={`/spots/${spot?.id}`}>
               <div className="all-spot-img">
                 <img
-                  // onMouseOver={handleMouseOver}
-                  // onMouseOut={handleMouseOut}
                   id="spot-pic"
                   alt="spot-pic"
                   src={spot?.imageUrl}
