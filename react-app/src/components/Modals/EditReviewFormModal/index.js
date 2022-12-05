@@ -8,7 +8,7 @@ function EditReviewFormModal({ review, oneSpot, spotId }) {
 
   return (
     <>
-      <button className="sign-in" onClick={() => setShowModal(true)}>Edit Review</button>
+      <button className="edit-review" onClick={() => setShowModal(true)}>Edit Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditReviewForm review={review} spotId={spotId} oneSpot={oneSpot} showModal={showModal} setShowModal={setShowModal}/>

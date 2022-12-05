@@ -18,10 +18,10 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
-  console.log("one spot from edit spot ", oneSpot);
+  // console.log("one spot from edit spot ", oneSpot);
 
   // const { id } = spot
-  console.log("SPOT ID from edit Form", spotId)
+  // console.log("SPOT ID from edit Form", spotId)
 
   useEffect(() => {
     setImageUrl(oneSpot && oneSpot.imageUrl)
@@ -264,10 +264,13 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
               />
             </label>
           </li>
-
+            
+            <div className="edit-spot-buttons">
           <button id="submit" type="submit">
             Submit Edit
           </button>
+          <button id="submit" type="cancel" onClick={() => setShowModal(false)}>Cancel</button>
+          </div>
         </ul>
       </div>
     </form>

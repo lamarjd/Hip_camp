@@ -64,10 +64,18 @@ function OneSpot() {
 //   return accum + num;
 // }, 0))
 
+const revPercent = reviews.reduce((accum, num) => {
+  let sum = accum + num  
+  let avg = 100 - ((sum / 5) / reviews.length) 
+  return Math.floor(avg)
+  }, 0)
+
 
   return (
     <div className="spot-container">
-      {/* <h3>Image</h3> */}
+         <NavLink to="/spots" exact={true} activeClassName="active">
+      <h2 id="back">Back To All Spots</h2>
+    </NavLink>
 
       <div className="spot-detail-div">
         <div className="spot-details">
@@ -97,13 +105,12 @@ function OneSpot() {
               <p>No Reviews</p>
             ) : (
               <>
-            <i className="fa-solid fa-thumbs-up"></i>
-              <p>{(reviews.reduce((accum, num) => { return (accum + num) / 5;}, 0) / reviews.length).toFixed(2) * 100}%</p>
-            <p>({filteredReviews.length}) reviews</p>
+            <i id="thumb-up" className="fa-solid fa-thumbs-up"></i>
+              <p id="thumb-up">{revPercent}%</p>
+            <p id="underline">({filteredReviews.length}) reviews</p>
               </>
 
             )}
-
 
             </div>
 
@@ -117,36 +124,22 @@ function OneSpot() {
       </div>
 
       <br />
-      {/* <h3>Country:</h3>
-      {oneSpot?.country}
-      <br /> */}
-
-      {/* <h3>Name:</h3>
-      {oneSpot?.name}
-      <br /> */}
-
-      <h3>Type:</h3>
-      {oneSpot?.type}
-      <br />
-      {/* <h3>Address:</h3>
-      {spot?.address}
-      <br /> */}
+  <div className="spot-specifics">
       <h3>Price:</h3>
-      {oneSpot?.price}
-      <br />
+      <h4 id="specifics">
+      ${oneSpot?.price}{" "}
+      </h4>
+      <h3>Type:</h3>
+      <h4 id="specifics">
+      {oneSpot?.type}{" "}
+      </h4>
+      
       <h3>Description:</h3>
-      {oneSpot?.description}
+      <h4 id="specifics">
+      {oneSpot?.description}{" "}
+      </h4>
       <br />
-      <h3>UserID:</h3>
-      {oneSpot?.user_id}
-
-
-      {/* {oneSpot?.user_id === sessionUser?.id &&
-      <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
-      } */}
-
-      {/* <EditSpotForm spot={spot} 
-      spotId={spotId}/> */}
+      </div>
 
       {filteredReviews?.length == 0 ? (
         <h3>No Reviews</h3>
@@ -158,14 +151,14 @@ function OneSpot() {
 
       <div className="reviews">
         {filteredReviews?.map((review) => (
-          <span>
-            {/* {console.log("review within the map", review)} */}
-            <p key={review?.body}>Body: {review?.body}</p>
+          <span id="review-items">
+    
+            <p id="review-labels" key={review?.body}>Review: {review?.body}</p>
 
-            <p key={review?.rating}>Rating: {review?.rating} / 5</p>
+            <p id="review-labels" key={review?.rating}>Rating: {review?.rating} / 5 stars</p>
 
             {review?.user_id === sessionUser?.id &&
-            <>
+            <div className="review-action-buttons">
             <EditReviewFormModal
               review={review}
               oneSpot={oneSpot}
@@ -175,15 +168,16 @@ function OneSpot() {
             <button id="delete-review" onClick={() => dispatch(deleteReviewThunk(review.id))}>
               Delete
             </button>
-              </>
+              </div>
             }
-          </span>
+            </span>
         ))}
       </div>
-
+          
     {oneSpot?.user_id !== sessionUser?.id && 
       <CreateReviewFormModal oneSpot={oneSpot} spotId={spotId} />
     }
+    <br/>
     </div>
   );
 }

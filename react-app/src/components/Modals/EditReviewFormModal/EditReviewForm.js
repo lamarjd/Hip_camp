@@ -28,21 +28,21 @@ let editedBody = (e) => {
 
 
 
-  useEffect(() => { 
-    const errors = []
-     if(body.length < 20) {
-      errors.push("Review body must be longer than 20 characters") 
-    }
+//   useEffect(() => { 
+//     const errors = []
+//      if(body.length < 20) {
+//       errors.push("Review body must be longer than 20 characters") 
+//     }
     
-    if(body.length > 200) {
-      errors.push("Review body must be less than 200 characters") 
-    }
-      setErrors(errors) 
-    }, [body]) 
+//     if(body.length > 200) {
+//       errors.push("Review body must be less than 200 characters") 
+//     }
+//       setErrors(errors) 
+//     }, [body]) 
 
-useEffect(() => {
-    dispatch(getOneReviewThunk(spotId))
-  }, [dispatch])
+// useEffect(() => {
+//     dispatch(getOneReviewThunk(spotId))
+//   }, [dispatch])
 
 
   const handleSubmit = async (e) => {
@@ -63,7 +63,7 @@ if (editedReview) {
 
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="edit-review-form" onSubmit={handleSubmit}>
             {/* <ul>
         {errors &&
           errors.map((error) => {
@@ -79,7 +79,7 @@ if (editedReview) {
         <li>
         <label>
           {" "}
-          Select Rating
+          Select Rating {" "}
           <select onChange={editedRating}>
             <option value={1}>1 Star</option>
             <option value={2}>2 Star</option>
@@ -92,7 +92,7 @@ if (editedReview) {
           <li>
             <label>
               {" "}
-              Edit Body:
+              Edit Review:
               <input
                 id="input-name"
                 type="text"
@@ -106,10 +106,14 @@ if (editedReview) {
             </label>
           </li>
      
+        <span id="edit-review-buttons">
 
           <button id="submit" type="submit">
             Submit Edit
           </button>
+          <button id="submit" type="cancel" onClick={() => setShowModal(false)}>Cancel</button>
+  
+        </span>
         </ul>
       </div>
     </form>

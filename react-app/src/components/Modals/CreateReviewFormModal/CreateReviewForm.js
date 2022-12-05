@@ -58,7 +58,7 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="add-review-form" onSubmit={handleSubmit}>
       <div className="review-inputs">
       {/* <ul>
         {errors &&
@@ -70,10 +70,12 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
             );
           })}
       </ul> */}
-      <h2>Review for {oneSpot.name}</h2> <hr/>
+      <h2>Write a review for {oneSpot.name}</h2> <hr/>
+      <div className="add-review-inputs">
+
       <label>
           {" "}
-          Select Rating
+          Select Rating {" "}
           <select onChange={(e) => setRating(e.target.value)}>
             <option value={1}>1 Star</option>
             <option value={2}>2 Star</option>
@@ -82,24 +84,35 @@ function CreateReviewForm({ oneSpot, setShowModal }) {
             <option value={5}>5 Star</option>
           </select>
         </label>
+
+        </div>
         <br/>
+
+        <div className="add-review-inputs">
+
         <label>
           {" "}
-          Write Review
-          <input
+          Write Review {" "}
+          <input id="review-body-input"
             placeholder="Add your review here"
             value={body}
             maxLength={200}
             minLength={20}
             required
             onChange={(e) => setBody(e.target.value)}
-          />
-          {body.length}/200
+            />
+           {body.length}/200
         </label>
-
-
+        <br />
+        </div>
         
-        <button type="submit">Add Review</button>
+
+
+        <div className="review-buttons">
+
+        <button id="submit" type="submit">Add Review</button>
+        <button id="submit" type="cancel" onClick={() => setShowModal(false)}>Cancel</button>
+        </div>
         
       </div>
     </form>
