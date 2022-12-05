@@ -152,21 +152,36 @@ function AllSpots() {
                   }}
                 />
 
-                <h1>{spot?.name}</h1>
               </div>
             </NavLink>
+            <div className="info">
+            {getCount(rev, spot.id) > 0 ? (
 
-            <p>{getAvg(sumRev(rev, spot.id)) } ({(getCount(rev, spot.id))})</p>
-            <br />
-            <p>{spot.type}</p>
+              <p id="spot-rev"
+              style={{color: 'green'}}
+              ><i id="thumb-up" className="fa-solid fa-thumbs-up"></i> {getAvg(sumRev(rev, spot.id)) } ({(getCount(rev, spot.id))})</p>
+            ) : (
+              <p id="spot-rev">No reviews (0)</p>
+            )
+            }
+
+                <h1 id="spot-name">{spot?.name}</h1>
+
+            
+            <p id="spot-rev">{spot.type}</p>
             {spot.city ? (
-              <p>{spot.city}, </p>
+              <p id="spot-rev"
+      
+              >{spot.city}, </p>
             ) : (
               null
             )}
         
-            <p>{spot.state} </p>
-            <p>from ${spot.price} /night </p>
+            <p id="spot-rev">{spot.state} </p>
+
+            <p id="spot-rev">from ${spot.price} /night </p>
+            
+            </div>
 
             {/* <div className="delete-spot">
               {sessionUser?.id === spot.user_id && (
