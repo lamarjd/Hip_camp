@@ -73,7 +73,9 @@ const revPercent = reviews.reduce((accum, num) => {
 
   return (
     <div className="spot-container">
-      {/* <h3>Image</h3> */}
+         <NavLink to="/spots" exact={true} activeClassName="active">
+      <h2 id="back">Back To All Spots</h2>
+    </NavLink>
 
       <div className="spot-detail-div">
         <div className="spot-details">

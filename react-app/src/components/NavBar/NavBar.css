@@ -65,15 +65,34 @@
 .profile-dropdown {
     position: fixed;
     display: flex;
-    right: 8%;
+    width: 200px;
+    right: 7%;
+    top: 3%;
     justify-items: center;
+    align-content: center;
     flex-direction: column;
     align-self: flex-start;
     background-color: white;
     color: black;
     margin-top: 3em;
     margin-left: 0.6em; 
-    margin-bottom: 0px; 
-    border-radius: 10px;
-    box-shadow: 3px 3px #eb9533ce, -.3em 0 .2em #fd8700ef;
+    margin-bottom: 0px;
+    cursor: default; 
+    /* border-radius: 10px; */
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.254)
+}
+
+#user-spots {
+    text-decoration: underline;
+    color: rgb(0, 197, 133);
+}
+
+#user-spots:hover {
+    text-decoration: underline;
+    box-shadow: rgba(0, 0, 0, 0.459) 0px 2px 4px 0px;
+    border-radius: 5px;
+}
+
+#user-info {
+    cursor: default;
 }

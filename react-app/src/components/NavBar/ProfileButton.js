@@ -6,70 +6,57 @@ import UserSpots from "../Spots/UserSpots";
 import "./NavBar.css";
 
 function ProfileButton({ sessionUser }) {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const [showMenu, setShowMenu] = useState(false);
-    const [showSpots, setShowSpots] = useState(false);
-  
-    const openMenu = () => {
-      if (showMenu) return;
-      setShowMenu(true);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+  const [showSpots, setShowSpots] = useState(false);
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+      setShowSpots(false);
     };
-  
-    useEffect(() => {
-      if (!showMenu) return;
-  
-      const closeMenu = () => {
-        setShowMenu(false);
-        setShowSpots(false)
-      };
-  
-      document.addEventListener("click", closeMenu);
-  
-      return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
-  
-    // const logout = (e) => {
-    //   e.preventDefault();
-    //   dispatch(sessionActions.logout());
-    //   history.push("/");
-    // };
-  
-    return (
-      <>
-        <div className="user_button">
-          <i id="menu" className="fas fa-user-circle" onClick={openMenu} />
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  // const logout = (e) => {
+  //   e.preventDefault();
+  //   dispatch(sessionActions.logout());
+  //   history.push("/");
+  // };
+
+  return (
+    <>
+      <div className="user_button">
+        <i id="menu" className="fas fa-user-circle" onClick={openMenu} />
+      </div>
+      {showMenu && (
+        <div className="profile-dropdown">
+          <p id="user-info">{sessionUser.username}</p>
+          <p id="user-info">{sessionUser.email}</p>
+
+          <p id="user-spots">
+
+          <NavLink to={`/${sessionUser?.id}/spots`}>My Spots</NavLink>
+          </p>
+
+          <p>
+            <LogoutButton />
+          </p>
         </div>
-        {showMenu && (
-          <div className="profile-dropdown">
-            <p>{sessionUser.username}</p>
-            <p>{sessionUser.email}</p>
+      )}
+    </>
+  );
+}
 
-            
-            {!showSpots &&               
-         
-        //  <button onClick={() => history.push(`/${sessionUser?.id}/spots`)}            
-        //  >
-        //         My Spots
-        //     </button>
-
-        <NavLink to={`/${sessionUser?.id}/spots`}           
-        >
-               My Spots
-           </NavLink>
-            
-        }
-
-                
-            
-
-            <p>
-              <LogoutButton />
-            </p>
-          </div>
-        )}
-      </>
-    );
-  }
-  
-  export default ProfileButton;
+export default ProfileButton;
