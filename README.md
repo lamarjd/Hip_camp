@@ -5,10 +5,10 @@ Inspired by Hipcamp, HI-CAMP is a single page recreational app where users can e
 ## Key Features include: Full CRUD features for Spots and Reviews
 
 ## Links
-[Live Site](https://hi-camp.onrender.com/)
-[MVP Feature List](https://github.com/lamarjd/Hip_camp/wiki/MVP-Feature-List)
-[Database Schema](https://github.com/lamarjd/Hip_camp/wiki/Schema)
-[User Stories](https://github.com/lamarjd/Hip_camp/wiki/User-Stories)
+* [Live Site](https://hi-camp.onrender.com/)
+* [MVP Feature List](https://github.com/lamarjd/Hip_camp/wiki/MVP-Feature-List)
+* [Database Schema](https://github.com/lamarjd/Hip_camp/wiki/Schema)
+* [User Stories](https://github.com/lamarjd/Hip_camp/wiki/User-Stories)
 
 # Project Pages and Features
 * Any user (signed in or not) can browse available spots and reviews
