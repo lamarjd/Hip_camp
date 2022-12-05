@@ -14,7 +14,7 @@ Inspired by Hipcamp, HI-CAMP is a single page recreational app where users can e
 * Any user (signed in or not) can browse available spots and reviews
 ![image](https://user-images.githubusercontent.com/98356168/205563114-29fc0ec1-d537-4722-ba2a-e4f4666eaeaf.png)
 
-![image](https://user-images.githubusercontent.com/98356168/205563514-cc9f8f7b-4b18-4b08-ab9b-57e45000c38e.png)
+![image](![image](https://user-images.githubusercontent.com/98356168/205564594-8f640827-f9f0-4614-b382-340bdad53cdb.png))
 
 
 * Any user who navigates to a page not found will be redirected to the 404 page
