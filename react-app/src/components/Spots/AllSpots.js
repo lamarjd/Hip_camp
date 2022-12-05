@@ -18,6 +18,35 @@ function AllSpots() {
 
   const rev = useSelector((state) => Object.values(state.reviews));
   console.log("rev", rev)
+
+  const sumRev = (rev, spotId) => {
+    let sum = 0
+    let count = 0
+    rev.map((r, i) => {
+      if (r.spot_id === spotId) {
+        sum += r.rating
+        count++ 
+      }})
+      // console.log(count)
+      return (sum / 5) / count
+  }
+
+  // let num = 7
+  const getAvg = (num) => {
+    if (num) return  num * 100 + `%` 
+    return "No reviews"
+  }
+
+  const getCount = (rev, spotId) => {
+    let count = 0
+    let sum = 0
+    rev.map((r) => {
+      if (r.spot_id === spotId) {
+        count++
+      }
+    })
+    return count
+  }
   
   const spots = useSelector((state) => Object.values(state.spots));
   console.log("SPOTS", spots);
@@ -38,14 +67,20 @@ function AllSpots() {
 
 
 
-const spotReview = rev.map((review) => {
-  return "Rev rating --->" + review.rating + "rev spot_ID" + review.spot_id
-})
-console.log("spot reviews", spotReview)
+// const spotReview = rev.map((review) => {
+//   return "Rev rating --->" + review.rating + "rev spot_ID" + review.spot_id
+// })
+// console.log("spot reviews", spotReview)
   
 
 
   const sessionUser = useSelector((state) => state.session.user);
+
+
+
+
+
+
 
 
   // let filteredSpots = spots.filter((spot) => {
@@ -118,14 +153,20 @@ console.log("spot reviews", spotReview)
                 />
 
                 <h1>{spot?.name}</h1>
-                <p>{}</p>
-
-
-                  <p>%</p>
-
               </div>
             </NavLink>
+
+            <p>{getAvg(sumRev(rev, spot.id)) } ({(getCount(rev, spot.id))})</p>
             <br />
+            <p>{spot.type}</p>
+            {spot.city ? (
+              <p>{spot.city}, </p>
+            ) : (
+              null
+            )}
+        
+            <p>{spot.state} </p>
+            <p>from ${spot.price} /night </p>
 
             {/* <div className="delete-spot">
               {sessionUser?.id === spot.user_id && (
