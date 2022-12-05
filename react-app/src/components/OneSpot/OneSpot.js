@@ -59,8 +59,9 @@ function OneSpot() {
 
   const revPercent = reviews.reduce((accum, num) => {
     let sum = accum + num;
-    let avg = 100 - sum / 5 / reviews.length;
-    return Math.floor(avg);
+    // let avg = sum * reviews.length
+    // / 5 / reviews.length;
+    return sum ;
   }, 0);
 
   return (
@@ -93,7 +94,7 @@ function OneSpot() {
             ) : (
               <>
                 <i id="thumb-up" className="fa-solid fa-thumbs-up"></i>
-                <p id="thumb-up">{revPercent}%</p>
+                <p id="thumb-up">{(revPercent / 5) / reviews.length * 100}%</p>
                 <p id="underline">({filteredReviews.length}) reviews</p>
               </>
             )}

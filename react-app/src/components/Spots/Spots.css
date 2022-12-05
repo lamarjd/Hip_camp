@@ -17,7 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 10px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
     /* margin-left: 12%; */
     /* margin-right: 50%; */
 }
@@ -29,7 +30,7 @@
 .all-spots-container {
     /* border: 2px dotted blue; */
     margin-top: 5%;
-    margin-bottom: 15%;
+    margin-bottom: 1%;
     min-height: 1180px;
     height: 100%;
     word-wrap: break-word;
@@ -62,25 +63,23 @@
 }
 
 .user-spot-list {
-        /* border: 2px solid red; */
-        display: grid;
-        grid-template-columns: repeat(4,20%);
-        align-items: start;
-        justify-content: center; 
-        gap: 2%;
-        /* flex-direction: column; */
-        /* display: flex; */
-        /* flex: 2 1 0%; */
-        min-width: 0px;
-        height: 100vh;
-        /* width: 100%; */
-        background-color: white;
-        /* margin-top: -10;     */
-        /* margin-bottom: 25%;     */
-        word-wrap: break-word;
-        /* margin-top: 5%;
-        padding-top: 5%; */
-        /* margin-bottom: 5%; */
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(4,20%);
+    align-items: center;
+    justify-content: center; 
+    gap: 2%;
+    /* flex-direction: column; */
+    /* display: flex; */
+    /* flex: 2 1 0%; */
+    min-width: 0px;
+    height: 100%;
+    /* width: 100%; */
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 60px;    
+    /* margin-bottom: 25%;     */
+    /* overflow-y: scroll; */
 }
 
 .single-spots-container {
@@ -104,6 +103,11 @@
     /* border: 2px solid blue; */
     max-width: 300px;
     margin-bottom: 55%;
+    font-size: 18px;
+    color: black;
+    /* border: 2px solid red; */
+    /* width: 300px;
+    margin-bottom: 0px; */
 }
 
 .options-container {
@@ -182,11 +186,12 @@
 }
 
 .delete-spot {
-    /* border: 2px solid red; */
-    width: 50%;
+    /* border: 1px solid red; */
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 5%;
+    justify-content: space-around;
+    margin-top: -45%;
+    margin-bottom: 15%;
 }
 
 .delete-spot > button {
