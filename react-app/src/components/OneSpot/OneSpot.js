@@ -64,6 +64,12 @@ function OneSpot() {
 //   return accum + num;
 // }, 0))
 
+const revPercent = reviews.reduce((accum, num) => {
+  let sum = accum + num  
+  let avg = 100 - ((sum / 5) / reviews.length) 
+  return Math.floor(avg)
+  }, 0)
+
 
   return (
     <div className="spot-container">
@@ -98,12 +104,11 @@ function OneSpot() {
             ) : (
               <>
             <i id="thumb-up" className="fa-solid fa-thumbs-up"></i>
-              <p id="thumb-up">{(reviews.reduce((accum, num) => { return (accum + num) / 5;}, 0) / reviews.length).toFixed(2) * 100}%</p>
+              <p id="thumb-up">{revPercent}%</p>
             <p id="underline">({filteredReviews.length}) reviews</p>
               </>
 
             )}
-
 
             </div>
 
@@ -117,13 +122,6 @@ function OneSpot() {
       </div>
 
       <br />
-      {/* <h3>Country:</h3>
-      {oneSpot?.country}
-      <br /> */}
-
-      {/* <h3>Name:</h3>
-      {oneSpot?.name}
-      <br /> */}
   <div className="spot-specifics">
       <h3>Price:</h3>
       <h4 id="specifics">
@@ -134,26 +132,12 @@ function OneSpot() {
       {oneSpot?.type}{" "}
       </h4>
       
-      {/* <h4>Address:</h4>
-      {spot?.address}
-    <br /> */}
-      
       <h3>Description:</h3>
       <h4 id="specifics">
       {oneSpot?.description}{" "}
       </h4>
       <br />
       </div>
-      {/* <h3>UserID:</h3>
-      {oneSpot?.user_id} */}
-
-
-      {/* {oneSpot?.user_id === sessionUser?.id &&
-      <EditSpotFormModal oneSpot={oneSpot} spotId={spotId} />
-      } */}
-
-      {/* <EditSpotForm spot={spot} 
-      spotId={spotId}/> */}
 
       {filteredReviews?.length == 0 ? (
         <h3>No Reviews</h3>
@@ -166,8 +150,7 @@ function OneSpot() {
       <div className="reviews">
         {filteredReviews?.map((review) => (
           <span id="review-items">
-            {/* {console.log("review within the map", review)} */}
-            <p id="review-labels">{sessionUser.username} Wrote:</p>
+    
             <p id="review-labels" key={review?.body}>Review: {review?.body}</p>
 
             <p id="review-labels" key={review?.rating}>Rating: {review?.rating} / 5 stars</p>
@@ -192,6 +175,7 @@ function OneSpot() {
     {oneSpot?.user_id !== sessionUser?.id && 
       <CreateReviewFormModal oneSpot={oneSpot} spotId={spotId} />
     }
+    <br/>
     </div>
   );
 }

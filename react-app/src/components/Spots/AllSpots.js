@@ -18,9 +18,9 @@ function AllSpots() {
     dispatch(fetchSpots());
   }, [dispatch]);
 
-  let filteredSpots = spots.filter((spot) => {
-    return spot.type === "Campsite";
-  });
+  // let filteredSpots = spots.filter((spot) => {
+  //   return spot.type === "Campsite";
+  // });
 
   // console.log("Filtered spots", filteredSpots)
 
@@ -45,7 +45,9 @@ function AllSpots() {
         <span className="single-option">
           {/* <h3>Campsites</h3>
           <h3>Lodging</h3> */}
-        <h3>{sessionUser && <CreateSpotFormModal />}</h3>
+        <h3>{sessionUser && 
+        
+        <CreateSpotFormModal />}</h3>
         </span>
       </div>
       <div className="spot-list">

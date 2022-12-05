@@ -124,6 +124,7 @@
     flex-direction: column;
     margin-left: 5%;
     margin-right: 5%;
+    /* margin-bottom: 2%; */
 }
 
 .review-action-buttons {
