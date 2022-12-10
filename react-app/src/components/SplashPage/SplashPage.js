@@ -31,17 +31,14 @@ export default function SplashPage() {
   }
 
   const timeout = (cb) => {
-
     setTimeout(() => {
       getRandom();
     }, 300);
 
     return () => clearTimeout(timeout);
-  }
+  };
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   // console.log("Random src", getRandom(imgSources))
   // console.log("Random src", getRandom(imgSources))
@@ -50,15 +47,15 @@ export default function SplashPage() {
   return (
     <div className="splash-container">
       <div className="splash-words">
-        <h1>Find yourself outside.</h1>
-        <div>
+        <h1 id="find">Find yourself outside.</h1>
+    
           <div className="wrap">
             <h2 id="wrap">
               Discover and book tent camping, RV <br />
               parks, cabins, treehouses, and glamping.
             </h2>
           </div>
-        </div>
+    
       </div>
 
       <div className="search">
@@ -67,7 +64,6 @@ export default function SplashPage() {
         </NavLink>
         {/* <input placeholder="Search"></input> */}
         <br />
-
       </div>
       <div className="splash-img-container">
         <img id="wake-up" alt="wake-up" src={getRandom()} />
