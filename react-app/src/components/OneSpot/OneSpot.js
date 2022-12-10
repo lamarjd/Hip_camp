@@ -50,19 +50,6 @@ function OneSpot() {
     dispatch(getAllReviews());
   }, [dispatch]);
 
-  // const reviews = filteredReviews.map(review => {
-  //   let sum = 0;
-  //   sum += review.rating
-  //   console.log("Sum", sum)
-  //   return sum
-  // })
-
-
-
-  const reviews = filteredReviews.map(review => {
-    return review.rating
-  })
-
   const reviews = filteredReviews.map((review) => {
     return review.rating;
   });
