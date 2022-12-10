@@ -34,6 +34,7 @@
     min-height: 1180px;
     height: 100%;
     word-wrap: break-word;
+    /* margin-bottom: 20%; */
 }
 
 #spot-pic {
@@ -54,6 +55,7 @@
     /* flex: 2 1 0%; */
     min-width: 0px;
     height: 1800px;
+
     /* width: 100%; */
     background-color: white;
     /* margin-bottom: 10px; */
