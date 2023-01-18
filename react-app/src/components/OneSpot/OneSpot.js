@@ -53,14 +53,8 @@ function OneSpot() {
     return review.rating;
   });
 
-  // console.log("reviews", reviews.reduce((accum, num) => {
-  //   return accum + num;
-  // }, 0))
-
   const revPercent = reviews.reduce((accum, num) => {
     let sum = accum + num;
-    // let avg = sum * reviews.length
-    // / 5 / reviews.length;
     return sum ;
   }, 0);
 
