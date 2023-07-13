@@ -3,28 +3,25 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import wakeUp1 from "../../assets/tent-and-view.png";
 import wakeUp2 from "../../assets/tent-view.png";
-// import wakeUp3 from "../../assets/wake-up.png"
 import wakeUp4 from "../../assets/wakeUp4.png";
 import wakeUp5 from "../../assets/wakeUp5.png";
 import wakeUp6 from "../../assets/wakeUp6.png";
 import wakeUp7 from "../../assets/wakeUp7.png";
 import wakeUp8 from "../../assets/wakeUp8.png";
-// import wakeUp9 from "../../assets/wakeUp9.png"
 import "./SplashPage.css";
 
 export default function SplashPage() {
   const imgSources = {
     src1: wakeUp1,
     src2: wakeUp2,
-    // src3: wakeUp3,
     src4: wakeUp4,
     src5: wakeUp5,
     src6: wakeUp6,
     src7: wakeUp7,
     src8: wakeUp8,
-    // src9: wakeUp9,
   };
 
+  // Generate random image from with each refresh / re-render
   function getRandom() {
     let srcVals = Object.values(imgSources);
     return srcVals[Math.floor(Math.random() * srcVals.length)];
