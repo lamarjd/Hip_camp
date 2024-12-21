@@ -30,4 +30,4 @@ wtforms = "==2.3.3"
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.9.20"
