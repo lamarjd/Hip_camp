@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9b6a06b656070bad4831a8d14556d3e541c2bd6fe18696d6333db7b42dfbe38a"
+            "sha256": "463ebaabd416989d8592763748a9ae336a4148fd24e87afa543ab19e1742f4a7"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.9"
+            "python_version": "3.9.20"
         },
         "sources": [
             {
@@ -62,11 +62,11 @@
         },
         "flask-cors": {
             "hashes": [
-                "sha256:72170423eb4612f0847318afff8c247b38bd516b7737adfc10d1c2cdbb382d16",
-                "sha256:f4d97201660e6bbcff2d89d082b5b6d31abee04b1b3003ee073a6fd25ad1d69a"
+                "sha256:5aadb4b950c4e93745034594d9f3ea6591f734bb3662e16e255ffbf5e89c88ef",
+                "sha256:b9e307d082a9261c100d8fb0ba909eec6a228ed1b60a8315fd85f783d61910bc"
             ],
             "index": "pypi",
-            "version": "==3.0.8"
+            "version": "==5.0.0"
         },
         "flask-login": {
             "hashes": [
