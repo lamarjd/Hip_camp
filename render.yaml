@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: hip-camp
+    env: python
+    buildCommand: |
+      npm install --prefix react-app
+      npm run build --prefix react-app
+      pip install -r requirements.txt
+      pip install psycopg2
+      flask db upgrade
+      flask seed all
+    startCommand: flask run --host=0.0.0.0 --port=10000
+    pythonVersion: 3.10.13
+    envVars:
+      - key: NODE_OPTIONS
+        value: --openssl-legacy-provider
