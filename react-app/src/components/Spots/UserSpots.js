@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import CreateSpotFormModal from "../Modals/CreateSpotFormModal"
 import { fetchSpots, deleteSpotThunk } from '../../store/spot';
 import defaultPic from "../../assets/wake-up.png";
 import "./Spots.css"

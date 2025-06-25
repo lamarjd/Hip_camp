@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import spotReducer, { fetchOneSpot } from "../../../store/spot";
+import { fetchOneSpot } from "../../../store/spot";
 import { createReviewThunk } from "../../../store/review";
 import "../Modals.css";
 
@@ -23,7 +23,7 @@ function CreateReviewForm({ filteredReviews, oneSpot, setShowModal }) {
 
   useEffect(() => {
     dispatch(fetchOneSpot(id));    
-  }, [dispatch, body, rating]);
+  }, [dispatch, body, rating, id]);
   
   useEffect(() => { 
     const errors = []
@@ -60,7 +60,7 @@ function CreateReviewForm({ filteredReviews, oneSpot, setShowModal }) {
   return (
     <form className="add-review-form" onSubmit={handleSubmit}>
       <div className="review-inputs">
-      {/* <ul>
+      <ul>
         {errors &&
           errors.map((error) => {
             return (
@@ -69,7 +69,7 @@ function CreateReviewForm({ filteredReviews, oneSpot, setShowModal }) {
               </li>
             );
           })}
-      </ul> */}
+      </ul>
       <h2>Write a review for {oneSpot.name}</h2> <hr/>
       <div className="add-review-inputs">
 

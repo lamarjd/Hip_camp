@@ -36,7 +36,7 @@ function EditSpotForm({ spotId, oneSpot, setShowModal }) {
 
   useEffect(() => {
     dispatch(fetchOneSpot(spotId))
-  }, [dispatch])
+  }, [dispatch, spotId])
 
   let editedImageUrl = (e) => {
     setImageUrl(e.target.value)

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory, NavLink, Redirect } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
-import UserSpots from "../Spots/UserSpots";
 import "./NavBar.css";
 
 function ProfileButton({ sessionUser }) {
-  const dispatch = useDispatch();
-  const history = useHistory();
+  // const dispatch = useDispatch();
+  // const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [showSpots, setShowSpots] = useState(false);
 
@@ -29,11 +28,6 @@ function ProfileButton({ sessionUser }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  // const logout = (e) => {
-  //   e.preventDefault();
-  //   dispatch(sessionActions.logout());
-  //   history.push("/");
-  // };
 
   return (
     <>

@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Link, Redirect, useHistory, useParams } from "react-router-dom";
+import { NavLink, Redirect, useParams } from "react-router-dom";
 // THUNKS Imports
 import { fetchOneSpot } from "../../store/spot";
 import {
   getAllReviews,
   deleteReviewThunk,
-  editReviewThunk,
 } from "../../store/review";
 // Component and local imports
-import EditSpotFormModal from "../Modals/EditSpotFormModal";
-import EditSpotForm from "../Modals/EditSpotFormModal/EditSpotForm";
+// import EditSpotFormModal from "../Modals/EditSpotFormModal";
+// import EditSpotForm from "../Modals/EditSpotFormModal/EditSpotForm";
 import CreateReviewFormModal from "../Modals/CreateReviewFormModal";
 import defaultPic from "../../assets/wake-up.png";
 
 import "./OneSpot.css";
 import EditReviewFormModal from "../Modals/EditReviewFormModal";
-import AllSpots from "../Spots/AllSpots";
+// import AllSpots from "../Spots/AllSpots";
 
 function OneSpot() {
   const dispatch = useDispatch();
@@ -48,7 +47,7 @@ function OneSpot() {
   useEffect(() => {
     dispatch(fetchOneSpot(spotId));
     dispatch(getAllReviews());
-  }, [dispatch]);
+  }, [dispatch, spotId]);
 
   const reviews = filteredReviews.map((review) => {
     return review.rating;
@@ -125,7 +124,7 @@ function OneSpot() {
         <br />
       </div>
 
-      {filteredReviews?.length == 0 ? (
+      {filteredReviews?.length === 0 ? (
         <h3>No Reviews</h3>
       ) : (
         <div className="total-reviews">

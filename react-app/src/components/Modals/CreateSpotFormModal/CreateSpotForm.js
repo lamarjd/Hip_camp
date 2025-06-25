@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createSpotThunk } from "../../../store/spot";
 import { useHistory } from "react-router-dom";
@@ -18,7 +18,7 @@ function CreateSpotForm({ showModal, setShowModal }) {
   const [country, setCountry] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
 
   // useEffect(() => {
   //   const errors = [];

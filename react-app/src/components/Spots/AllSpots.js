@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
-import { fetchSpots, editSpotThunk, deleteSpotThunk } from "../../store/spot";
+import { fetchSpots } from "../../store/spot";
 import { getAllReviews } from "../../store/review";
 import defaultPic from "../../assets/wake-up.png";
 import "./Spots.css";
 
 function AllSpots() {
   const dispatch = useDispatch();
-  const { spotId } = useParams();
   
   useEffect(() => {
     dispatch(fetchSpots());
@@ -22,7 +21,7 @@ function AllSpots() {
   const sumRev = (rev, spotId) => {
     let sum = 0
     let count = 0
-    rev.map((r, i) => {
+    rev.map((r) => {
       if (r.spot_id === spotId) {
         sum += r.rating
         count++ 
@@ -31,7 +30,6 @@ function AllSpots() {
       return (sum / 5) / count
   }
 
-  // let num = 7
   const getAvg = (num) => {
     if (num) return  num * 100 + `%` 
     return "No reviews"
@@ -39,7 +37,6 @@ function AllSpots() {
 
   const getCount = (rev, spotId) => {
     let count = 0
-    let sum = 0
     rev.map((r) => {
       if (r.spot_id === spotId) {
         count++
@@ -49,7 +46,7 @@ function AllSpots() {
   }
   
   const spots = useSelector((state) => Object.values(state.spots));
-  console.log("SPOTS", spots);
+  // console.log("SPOTS", spots);
   
   // const revBySpot = (spots) => {
   //   let arr =[]

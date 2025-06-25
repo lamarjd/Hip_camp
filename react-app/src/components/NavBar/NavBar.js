@@ -1,8 +1,6 @@
 import React from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
-import LogoutButton from "../auth/LogoutButton";
 import LoginFormModal from "../Modals/LoginFormModal";
 import ProfileButton from "./ProfileButton";
 import "./NavBar.css";

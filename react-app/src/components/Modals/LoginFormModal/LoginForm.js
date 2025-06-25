@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 import "../Modals.css"
@@ -11,12 +10,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
 
   const user = useSelector(state => state.session.user);
-  // console.log("User from LoginForm", user)
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(login(email, password))
-  // }, [dispatch])
 
 
   const demoUser = () => {

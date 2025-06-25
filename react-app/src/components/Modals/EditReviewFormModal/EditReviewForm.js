@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { editReviewThunk, getOneReviewThunk } from '../../../store/review';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { editReviewThunk } from '../../../store/review';
 import { useHistory } from "react-router-dom";
 import "../Modals.css"
 
@@ -9,14 +9,10 @@ function EditReviewForm({ review, spotId, oneSpot, setShowModal }) {
 const dispatch = useDispatch();
 const history = useHistory();
 
-console.log("review from Edit Review Form", review)
-
-// const review = useSelector((state) => state.reviews)
-// console.log("review selector", review)
 
 const [body, setBody] = useState(review?.body)
 const [rating, setRating] = useState(review?.rating)
-const [errors, setErrors] = useState([]);
+// const [errors, setErrors] = useState([]);
 
 let editedBody = (e) => {
     setBody(e.target.value)

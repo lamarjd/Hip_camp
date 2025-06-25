@@ -95,7 +95,7 @@
     height: 450px;
     width: 100%;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     
 }
@@ -180,7 +180,7 @@
 #spot-pricing {
     display: inline-flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     width: 80%;
     height: 15%;
     /* border: 1px solid blue; */

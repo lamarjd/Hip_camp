@@ -27,7 +27,7 @@ export default function SplashPage() {
     return srcVals[Math.floor(Math.random() * srcVals.length)];
   }
 
-  const timeout = (cb) => {
+  const timeout = () => {
     setTimeout(() => {
       getRandom();
     }, 300);

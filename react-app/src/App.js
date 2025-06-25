@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import SignUpForm from './components/auth/SignUpForm';
@@ -11,7 +11,6 @@ import OneSpot from './components/OneSpot/OneSpot.js';
 import SplashPage from "./components/SplashPage/SplashPage"
 import { authenticate } from './store/session';
 import NotFound from './components/NotFound/NotFound';
-import Test from './components/Test/test';
 import Footer from './components/Footer/Footer';
 import UserSpots from './components/Spots/UserSpots';
 
