@@ -16,7 +16,13 @@ from .api.review_routes import review_routes
 from .seeds import seed_commands
 from .config import Config
 
-app = Flask(__name__, static_folder=os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'react-app', 'build'), static_url_path='/')
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(
+    __name__,
+    static_folder=os.path.join(BASE_DIR, '../react-app/build'),
+    static_url_path='/'
+)
 
 
 
