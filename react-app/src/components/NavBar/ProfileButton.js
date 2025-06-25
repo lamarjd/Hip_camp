@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import "./NavBar.css";
 
 function ProfileButton({ sessionUser }) {
-  // const dispatch = useDispatch();
-  // const history = useHistory();
+
   const [showMenu, setShowMenu] = useState(false);
-  const [showSpots, setShowSpots] = useState(false);
 
   const openMenu = () => {
     if (showMenu) return;
@@ -20,7 +17,6 @@ function ProfileButton({ sessionUser }) {
 
     const closeMenu = () => {
       setShowMenu(false);
-      setShowSpots(false);
     };
 
     document.addEventListener("click", closeMenu);
@@ -39,9 +35,9 @@ function ProfileButton({ sessionUser }) {
           <p id="user-info">{sessionUser.username}</p>
           <p id="user-info">{sessionUser.email}</p>
 
-          <p id="user-spots">
+          <p id="user-spots" style={{textDecoration: "none"}}>
 
-          <NavLink to={`/${sessionUser?.id}/spots`}>My Spots</NavLink>
+          <NavLink  to={`/${sessionUser?.id}/spots`}>My Spots</NavLink>
           </p>
 
           <p>

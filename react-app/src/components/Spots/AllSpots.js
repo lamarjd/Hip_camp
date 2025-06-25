@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CreateSpotFormModal from "../Modals/CreateSpotFormModal";
 import { fetchSpots } from "../../store/spot";
 import { getAllReviews } from "../../store/review";
@@ -21,7 +21,7 @@ function AllSpots() {
   const sumRev = (rev, spotId) => {
     let sum = 0
     let count = 0
-    rev.map((r) => {
+    rev.forEach((r) => {
       if (r.spot_id === spotId) {
         sum += r.rating
         count++ 
@@ -37,7 +37,7 @@ function AllSpots() {
 
   const getCount = (rev, spotId) => {
     let count = 0
-    rev.map((r) => {
+    rev.forEach((r) => {
       if (r.spot_id === spotId) {
         count++
       }

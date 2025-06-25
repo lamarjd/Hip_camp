@@ -27,13 +27,6 @@ export default function SplashPage() {
     return srcVals[Math.floor(Math.random() * srcVals.length)];
   }
 
-  const timeout = () => {
-    setTimeout(() => {
-      getRandom();
-    }, 300);
-
-    return () => clearTimeout(timeout);
-  };
 
   useEffect(() => {}, []);
 
