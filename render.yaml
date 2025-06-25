@@ -11,7 +11,7 @@ services:
       pip install psycopg2
       flask db upgrade
       flask seed all
-    startCommand: flask run --host=0.0.0.0 --port=$PORT
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: NODE_OPTIONS
         value: --openssl-legacy-provider
